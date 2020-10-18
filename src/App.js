@@ -13,10 +13,6 @@ function App() {
   const [isHovered, setIsHovered] = useState(false);
   //box color state
 
-  const hoverHandler = (hovered) => {
-    hovered ? setIsHovered(true) : setIsHovered(false);
-  };
-
   return (
     <div className="app">
       <VRCanvas>
@@ -49,7 +45,7 @@ function App() {
 
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
-        <Hover onChange={(isHovered) => () => hoverHandler(isHovered)}>
+        <Hover onChange={setIsHovered}>
           <Box
             castShadow
             args={[0.5, 0.5, 0.5]}
