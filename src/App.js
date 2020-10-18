@@ -1,7 +1,14 @@
 import React, { useState, useCallback } from "react";
 import { OrbitControls, Box, Cylinder, PerspectiveCamera } from "drei";
 // import { Canvas } from "react-three-fiber";
-import { VRCanvas, DefaultXRControllers, Hover, useXREvent } from "react-xr";
+import {
+  VRCanvas,
+  DefaultXRControllers,
+  Hover,
+  useController,
+  useXR,
+  useXREvent,
+} from "react-xr";
 import useSound from "use-sound";
 
 import tomSfx from "./sounds/808-tom-01.wav";
@@ -42,8 +49,12 @@ function App() {
   //  need to build move selected object position function
 
   // rright squeezs kick drum pending
-  // const onSqueeze = useCallback(() => kickSound(), []);
-  // useXREvent("select", onSqueeze);
+
+  // const rightController = useController("right");
+  const { controllers } = useXR();
+  console.log("controllers: ", controllers);
+  const onSqueeze = useCallback(() => console.log("Squeezed"), []);
+  useXREvent("squeeze", onSqueeze, { handedness: "right" });
   return (
     <div className="app">
       <VRCanvas>
