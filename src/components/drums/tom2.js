@@ -23,8 +23,8 @@ const Tom2 = () => {
         castShadow
         args={[0.2, 0.2, 0.3]}
         Box
-        position={[0.5, 0.5, -0.65]}
-        rotation={[0.7, 0.7, 0]}
+        position={[0.5, 0.7, -0.65]}
+        rotation={[0.7, 0, Math.PI / 10]}
       >
         <meshStandardMaterial color={isTomHovered ? "red" : "yellow"} />
       </Cylinder>

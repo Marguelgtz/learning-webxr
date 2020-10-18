@@ -5,7 +5,7 @@ import useSound from "use-sound";
 
 import tomSfx from "../../sounds/808-tom-01.wav";
 
-const Snare = () => {
+const Tom = () => {
   const [tomSound] = useSound(tomSfx);
   const [isTomHovered, setIsTomHovered] = useState(false);
 
@@ -24,8 +24,8 @@ const Snare = () => {
         castShadow
         args={[0.2, 0.2, 0.3]}
         Box
-        position={[0, 0.5, -0.7]}
-        rotation={[0.7, 0, 0]}
+        position={[0, 0.7, -0.7]}
+        rotation={[0.7, 0, (11 * Math.PI) / 6]}
       >
         <meshStandardMaterial color={isTomHovered ? "green" : "blue"} />
       </Cylinder>
@@ -33,4 +33,4 @@ const Snare = () => {
   );
 };
 
-export default Snare;
+export default Tom;
