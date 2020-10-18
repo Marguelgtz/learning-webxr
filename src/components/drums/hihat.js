@@ -23,8 +23,8 @@ const HiHat = () => {
         castShadow
         args={[0.3, 0.1]}
         Box
-        position={[-0.5, 0.7, -0.5]}
-        rotation={[0.7, 0, 0]}
+        position={[-0.6, 0.7, -0.48]}
+        rotation={[0, 0, 0]}
       >
         <meshStandardMaterial color={isHiHatHovered ? "red" : "yellow"} />
       </Cone>

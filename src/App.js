@@ -12,6 +12,7 @@ import SnareDrum from "./components/drums/snare";
 import TomDrum from "./components/drums/tom";
 import Tom2Drum from "./components/drums/tom2";
 import LeftCymbal from "./components/drums/leftCymbal";
+import HiHat from "./components/drums/hihat";
 
 // ADD VR SUPPORT
 
@@ -62,6 +63,7 @@ function App() {
         <SnareDrum />
         <KickDrum />
         <LeftCymbal />
+        <HiHat />
       </VRCanvas>
     </div>
   );
