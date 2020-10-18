@@ -3,7 +3,7 @@ import { Cylinder } from "drei";
 import { Hover } from "react-xr";
 import useSound from "use-sound";
 
-import tomSfx from "../../sounds/808-Tom-10.wav";
+import tomSfx from "../../sounds/808-tom-10.wav";
 
 const Tom2 = () => {
   const [tomSound] = useSound(tomSfx);

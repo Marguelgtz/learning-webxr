@@ -10,6 +10,7 @@ import Plane from "./components/plane";
 import KickDrum from "./components/drums/kick";
 import SnareDrum from "./components/drums/snare";
 import TomDrum from "./components/drums/tom";
+import Tom2Drum from "./components/drums/tom2";
 
 // ADD VR SUPPORT
 
@@ -56,6 +57,7 @@ function App() {
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
         <TomDrum />
+        <Tom2Drum />
         <SnareDrum />
         <KickDrum />
       </VRCanvas>
