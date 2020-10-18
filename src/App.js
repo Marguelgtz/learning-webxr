@@ -14,7 +14,7 @@ function App() {
       <VRCanvas>
         <PerspectiveCamera
           makeDefault // Registers it as the default camera system-wide (default=false
-          position={[0, 0, 4]}
+          position={[0, 0, 20]}
         >
           <mesh />
         </PerspectiveCamera>
@@ -40,7 +40,7 @@ function App() {
         <OrbitControls />
 
         {/* Some geometry */}
-        <Box castShadow>
+        <Box castShadow args={[1, 1, 1]}>
           <meshStandardMaterial color="gray" />
         </Box>
       </VRCanvas>
