@@ -86,10 +86,10 @@ function App() {
             castShadow
             args={[0.2, 0.2, 0.3]}
             Box
-            position={[0, 0.5, -0.7]}
+            position={[1, 0.5, -0.65]}
             rotation={[0.7, 0, 0]}
           >
-            <meshStandardMaterial color={isHovered ? "green" : "blue"} />
+            <meshStandardMaterial color={isHovered ? "red" : "yellow"} />
           </Cylinder>
         </Hover>
       </VRCanvas>
