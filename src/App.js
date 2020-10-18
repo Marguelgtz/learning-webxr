@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { OrbitControls, Box, Cylinder, PerspectiveCamera } from "drei";
 // import { Canvas } from "react-three-fiber";
-import { VRCanvas, DefaultXRControllers, Hover } from "react-xr";
+import { VRCanvas, DefaultXRControllers, Hover, useXREvent } from "react-xr";
 import useSound from "use-sound";
 
 import tomSfx from "./sounds/808-tom-01.wav";
 import snareSfx from "./sounds/808-snare-02.wav";
+import kickSfx from "./sounds/808-kick-01.wav";
 
 import "./App.css";
 
@@ -16,9 +17,13 @@ import Plane from "./components/plane";
 function App() {
   const [tomSound] = useSound(tomSfx);
   const [snareSound] = useSound(snareSfx);
+  const [kickSound] = useSound(kickSfx);
 
   const [isTomHovered, setIsTomHovered] = useState(false);
   const [isSnareHovered, setIsSnareHovered] = useState(false);
+
+  const onSqueeze = useCallback(() => kickSound(), []);
+  useXREvent("squeeze", onSqueeze, { handedness: "rigth" });
 
   const tomHandler = (hovered) => {
     if (hovered) {
