@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { OrbitControls, Box, Cylinder, PerspectiveCamera } from "drei";
 // import { Canvas } from "react-three-fiber";
 import {
@@ -51,10 +51,10 @@ function App() {
   // rright squeezs kick drum pending
 
   // const rightController = useController("right");
-  const { controllers } = useXR();
-  console.log("controllers: ", controllers);
+  const rightController = useController("right");
+
   const onSqueeze = useCallback(() => console.log("Squeezed"), []);
-  useXREvent("squeeze", onSqueeze, { handedness: "right" });
+  // useXREvent("squeeze", onSqueeze, { handedness: "right" });
   return (
     <div className="app">
       <VRCanvas>
