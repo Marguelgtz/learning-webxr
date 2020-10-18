@@ -1,5 +1,5 @@
 import React from "react";
-import { OrbitControls, Box } from "drei";
+import { OrbitControls, Box, PerspectiveCamera } from "drei";
 // import { Canvas } from "react-three-fiber";
 import { VRCanvas, DefaultXRControllers } from "react-xr";
 import "./App.css";
@@ -12,6 +12,12 @@ function App() {
   return (
     <div className="app">
       <VRCanvas>
+        <PerspectiveCamera
+          makeDefault // Registers it as the default camera system-wide (default=false
+          position={[0, 0, 4]}
+        >
+          <mesh />
+        </PerspectiveCamera>
         {/* adds controlers to scene */}
         <DefaultXRControllers />
         <Plane />
@@ -30,6 +36,7 @@ function App() {
         </spotLight>
 
         {/* Controll camera with mouse */}
+        {/* need to set orbit controls to a diferent camera position */}
         <OrbitControls />
 
         {/* Some geometry */}
