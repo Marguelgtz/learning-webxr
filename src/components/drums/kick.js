@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Cylinder } from "drei";
 import { useXREvent } from "react-xr";
 import useSound from "use-sound";
@@ -8,11 +8,19 @@ import kickSfx from "../../sounds/808-kick-01.wav";
 const Kick = () => {
   const [kickSound] = useSound(kickSfx);
 
-  const onSqueeze = () => {
+  const [kickActive, setKickActive] = useState(false);
+  const onSqueezeStart = (arg) => {
+    setKickActive(true);
     kickSound();
-    console.log("sqeek right controller");
+    console.log("sqeek right controller", arg);
   };
-  useXREvent("squeeze", onSqueeze, { handedness: "right" });
+  const onSqueezeEnd = (arg) => {
+    setKickActive(false);
+    kickSound();
+    console.log("sqeek right controller", arg);
+  };
+  useXREvent("squeezestart", onSqueezeStart, { handedness: "right" });
+  useXREvent("squeezeend", onSqueezeEnd, { handedness: "right" });
 
   return (
     <Cylinder
@@ -22,7 +30,7 @@ const Kick = () => {
       position={[0.2, 0, -0.6]}
       rotation={[Math.PI / 2, 0, 0]}
     >
-      <meshStandardMaterial color="orange" />
+      <meshStandardMaterial color={kickActive ? "orange" : "purple"} />
     </Cylinder>
   );
 };
