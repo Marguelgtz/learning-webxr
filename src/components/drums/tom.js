@@ -25,7 +25,7 @@ const Tom = () => {
         args={[0.2, 0.2, 0.3]}
         Box
         position={[0, 0.7, -0.7]}
-        rotation={[0.7, 0, (11 * Math.PI) / 6]}
+        rotation={[0.7, 0, (12 * Math.PI) / 6]}
       >
         <meshStandardMaterial color={isTomHovered ? "green" : "blue"} />
       </Cylinder>
