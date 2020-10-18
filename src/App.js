@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { OrbitControls, Box, PerspectiveCamera } from "drei";
 // import { Canvas } from "react-three-fiber";
-import { VRCanvas, DefaultXRControllers } from "react-xr";
-import { Hover } from "@react-three/xr";
+import { VRCanvas, DefaultXRControllers, Hover } from "react-xr";
+
 import "./App.css";
 
 import Plane from "./components/plane";
@@ -12,6 +12,10 @@ import Plane from "./components/plane";
 function App() {
   const [isHovered, setIsHovered] = useState(false);
   //box color state
+  const [boxColor, setBoxColor] = useState("green");
+  const hoverHandler = (hovered) => {
+    hovered ? setBoxColor("blue") : setBoxColor("green");
+  };
 
   return (
     <div className="app">
@@ -45,12 +49,12 @@ function App() {
 
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
-        <Hover onChange={setIsHovered}>
+        <Hover onChange={(isHovered) => setIsHovered(!isHovered)}>
           <Box
             castShadow
             args={[0.5, 0.5, 0.5]}
             Box
-            position={[0, 1, -0.7]}
+            position={[0, 1, -0.5]}
             rotation={[2, 3, 0]}
           >
             <meshStandardMaterial color={isHovered ? "green" : "blue"} />
