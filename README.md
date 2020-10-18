@@ -2,8 +2,7 @@
 
 learning how to build with web xr by building a VR drumkit
 
--WEBXR
-
+- WEBXR
 - React
 - Threejs
 - React-Three-Fiber
