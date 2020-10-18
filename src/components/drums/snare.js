@@ -7,9 +7,7 @@ import snareSfx from "../../sounds/808-snare-02.wav";
 
 const Snare = () => {
   const [snareSound] = useSound(snareSfx);
-
   const [isSnareHovered, setIsSnareHovered] = useState(false);
-
   const snareHandler = (hovered) => {
     if (hovered) {
       setIsSnareHovered(true);
