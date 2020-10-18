@@ -17,22 +17,23 @@ function App() {
   const [tomSound] = useSound(tomSfx);
   const [snareSound] = useSound(snareSfx);
 
-  const [isHovered, setIsHovered] = useState(false);
+  const [isTomHovered, setIsTomHovered] = useState(false);
+  const [isSnareHovered, setIsSnareHovered] = useState(false);
 
   const tomHandler = (hovered) => {
     if (hovered) {
-      setIsHovered(true);
+      setIsTomHovered(true);
       tomSound();
     } else {
-      setIsHovered(false);
+      setIsTomHovered(false);
     }
   };
   const snareHandler = (hovered) => {
     if (hovered) {
-      setIsHovered(true);
+      setIsSnareHovered(true);
       snareSound();
     } else {
-      setIsHovered(false);
+      setIsSnareHovered(false);
     }
   };
 
@@ -70,7 +71,7 @@ function App() {
 
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
-        <Hover onChange={(isHovered) => tomHandler(isHovered)}>
+        <Hover onChange={(isTomHovered) => tomHandler(isTomHovered)}>
           <Cylinder
             castShadow
             args={[0.2, 0.2, 0.3]}
@@ -78,10 +79,10 @@ function App() {
             position={[0, 0.5, -0.7]}
             rotation={[0.7, 0, 0]}
           >
-            <meshStandardMaterial color={isHovered ? "green" : "blue"} />
+            <meshStandardMaterial color={isTomHovered ? "green" : "blue"} />
           </Cylinder>
         </Hover>
-        <Hover onChange={(isHovered) => snareHandler(isHovered)}>
+        <Hover onChange={(isTomHovered) => snareHandler(isTomHovered)}>
           <Cylinder
             castShadow
             args={[0.2, 0.2, 0.3]}
@@ -89,7 +90,7 @@ function App() {
             position={[0.5, 0.5, -0.65]}
             rotation={[0.7, 0.7, 0]}
           >
-            <meshStandardMaterial color={isHovered ? "red" : "yellow"} />
+            <meshStandardMaterial color={isSnareHovered ? "red" : "yellow"} />
           </Cylinder>
         </Hover>
       </VRCanvas>
