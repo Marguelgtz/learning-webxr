@@ -1,7 +1,7 @@
 import React from "react";
 import { OrbitControls, Box } from "drei";
 // import { Canvas } from "react-three-fiber";
-import { VRCanvas } from "react-xr";
+import { VRCanvas, DefaultXRControllers } from "react-xr";
 import "./App.css";
 
 import Plane from "./components/plane";
@@ -12,6 +12,8 @@ function App() {
   return (
     <div className="app">
       <VRCanvas>
+        {/* adds controlers to scene */}
+        <DefaultXRControllers />
         <Plane />
         {/* Scene lighting */}
         <ambientLight intensity={0.2} />
