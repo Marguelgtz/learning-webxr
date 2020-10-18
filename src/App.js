@@ -1,18 +1,11 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { OrbitControls, Box, Cylinder, PerspectiveCamera } from "drei";
 // import { Canvas } from "react-three-fiber";
-import {
-  VRCanvas,
-  DefaultXRControllers,
-  Hover,
-  useController,
-  useXR,
-  useXREvent,
-} from "react-xr";
+import { VRCanvas, DefaultXRControllers, Hover } from "react-xr";
 import useSound from "use-sound";
 
 import tomSfx from "./sounds/808-tom-01.wav";
-import snareSfx from "./sounds/808-snare-02.wav";
+
 import kickSfx from "./sounds/808-kick-01.wav";
 
 import "./App.css";
@@ -22,12 +15,13 @@ import Controllers from "./components/controllers";
 
 //drums
 import KickDrum from "./components/drums/kick";
+import SnareDrum from "./components/drums/snare";
 
 // ADD VR SUPPORT
 
 function App() {
   const [tomSound] = useSound(tomSfx);
-  const [snareSound] = useSound(snareSfx);
+
   const [kickSound] = useSound(kickSfx);
 
   const [isTomHovered, setIsTomHovered] = useState(false);
@@ -39,14 +33,6 @@ function App() {
       tomSound();
     } else {
       setIsTomHovered(false);
-    }
-  };
-  const snareHandler = (hovered) => {
-    if (hovered) {
-      setIsSnareHovered(true);
-      snareSound();
-    } else {
-      setIsSnareHovered(false);
     }
   };
 
@@ -103,17 +89,7 @@ function App() {
             <meshStandardMaterial color={isTomHovered ? "green" : "blue"} />
           </Cylinder>
         </Hover>
-        <Hover onChange={(isTomHovered) => snareHandler(isTomHovered)}>
-          <Cylinder
-            castShadow
-            args={[0.2, 0.2, 0.3]}
-            Box
-            position={[0.5, 0.5, -0.65]}
-            rotation={[0.7, 0.7, 0]}
-          >
-            <meshStandardMaterial color={isSnareHovered ? "red" : "yellow"} />
-          </Cylinder>
-        </Hover>
+        <SnareDrum />
         <KickDrum />
       </VRCanvas>
     </div>
