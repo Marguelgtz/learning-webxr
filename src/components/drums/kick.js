@@ -30,7 +30,7 @@ const Kick = () => {
       position={[0.2, 0, -0.6]}
       rotation={[Math.PI / 2, 0, 0]}
     >
-      <meshStandardMaterial color={kickActive ? "orange" : "purple"} />
+      <meshStandardMaterial color={kickActive ? "purple" : "orange"} />
     </Cylinder>
   );
 };
