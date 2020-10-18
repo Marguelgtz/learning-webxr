@@ -61,7 +61,7 @@ function App() {
         <Hover onChange={(isHovered) => hoverHandler(isHovered)}>
           <Cylinder
             castShadow
-            args={[0.8, 0.3, 0.5]}
+            args={[0.3, 0.3, 0.3]}
             Box
             position={[0, 0, -0.8]}
             rotation={[1, 0, 0]}
