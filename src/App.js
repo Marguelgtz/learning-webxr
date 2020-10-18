@@ -17,7 +17,7 @@ function App() {
 
   const [isHovered, setIsHovered] = useState(false);
 
-  const hoverHandler = (hovered) => {
+  const tomHandler = (hovered) => {
     if (hovered) {
       setIsHovered(true);
       tomSound();
@@ -25,6 +25,16 @@ function App() {
       setIsHovered(false);
     }
   };
+  const snareHandler = (hovered) => {
+    if (hovered) {
+      setIsHovered(true);
+      tomSound();
+    } else {
+      setIsHovered(false);
+    }
+  };
+
+  //  need to build move selected object position function
 
   return (
     <div className="app">
@@ -58,12 +68,23 @@ function App() {
 
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
-        <Hover onChange={(isHovered) => hoverHandler(isHovered)}>
+        <Hover onChange={(isHovered) => tomHandler(isHovered)}>
           <Cylinder
             castShadow
             args={[0.2, 0.2, 0.3]}
             Box
-            position={[0, 0.5, -0.8]}
+            position={[0, 0.5, -0.7]}
+            rotation={[0.7, 0, 0]}
+          >
+            <meshStandardMaterial color={isHovered ? "green" : "blue"} />
+          </Cylinder>
+        </Hover>
+        <Hover onChange={(isHovered) => snareHandler(isHovered)}>
+          <Cylinder
+            castShadow
+            args={[0.2, 0.2, 0.3]}
+            Box
+            position={[0, 0.5, -0.7]}
             rotation={[0.7, 0, 0]}
           >
             <meshStandardMaterial color={isHovered ? "green" : "blue"} />
