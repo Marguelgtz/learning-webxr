@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { OrbitControls, Box, PerspectiveCamera } from "drei";
+import { OrbitControls, Box, Cylinder, PerspectiveCamera } from "drei";
 // import { Canvas } from "react-three-fiber";
 import { VRCanvas, DefaultXRControllers, Hover } from "react-xr";
 import useSound from "use-sound";
@@ -59,15 +59,15 @@ function App() {
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
         <Hover onChange={(isHovered) => hoverHandler(isHovered)}>
-          <Box
+          <Cylinder
             castShadow
             args={[0.5, 0.5, 0.5]}
             Box
-            position={[0, 1, -0.5]}
+            position={[0, 0.5, -0.5]}
             rotation={[2, 3, 0]}
           >
             <meshStandardMaterial color={isHovered ? "green" : "blue"} />
-          </Box>
+          </Cylinder>
         </Hover>
       </VRCanvas>
     </div>
