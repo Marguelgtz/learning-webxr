@@ -19,7 +19,7 @@ const Controllers = () => {
     kickSound();
     console.log("sqeek right controller");
   };
-  useXREvent("squeezestart", onSqueeze, { handedness: "right" });
+  useXREvent("squeeze", onSqueeze, { handedness: "right" });
 
   return <></>;
 };
