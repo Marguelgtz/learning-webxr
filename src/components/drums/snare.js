@@ -21,7 +21,7 @@ const Snare = () => {
     <Hover onChange={(isTomHovered) => snareHandler(isTomHovered)}>
       <Cylinder
         castShadow
-        args={[0.35, 0.35, 0.2]}
+        args={[0.3, 0.3, 0.2]}
         Box
         position={[-0.3, 0.3, -0.2]}
         rotation={[0, 0, 0]}
