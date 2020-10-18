@@ -6,9 +6,12 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "drei": "^1.5.7",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-three-fiber": "^5.0.6",
+    "react-xr": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
