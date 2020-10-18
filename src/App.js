@@ -20,6 +20,9 @@ import "./App.css";
 import Plane from "./components/plane";
 import Controllers from "./components/controllers";
 
+//drums
+import KickDrum from "./components/drums/kick";
+
 // ADD VR SUPPORT
 
 function App() {
@@ -111,15 +114,7 @@ function App() {
             <meshStandardMaterial color={isSnareHovered ? "red" : "yellow"} />
           </Cylinder>
         </Hover>
-        <Cylinder
-          castShadow
-          args={[0.5, 0.5, 0.2]}
-          Box
-          position={[0.2, 0, -0.6]}
-          rotation={[Math.PI / 2, 0, 0]}
-        >
-          <meshStandardMaterial color="orange" />
-        </Cylinder>
+        <KickDrum />
       </VRCanvas>
     </div>
   );
