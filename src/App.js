@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { OrbitControls, Box, PerspectiveCamera } from "drei";
 // import { Canvas } from "react-three-fiber";
-import { VRCanvas, DefaultXRControllers } from "react-xr";
+import { VRCanvas, DefaultXRControllers, Hover } from "react-xr";
 import "./App.css";
 
 import Plane from "./components/plane";
@@ -9,6 +9,8 @@ import Plane from "./components/plane";
 // ADD VR SUPPORT
 
 function App() {
+  const isHovered = useState([false, setIsHovered]);
+
   return (
     <div className="app">
       <VRCanvas>
@@ -41,7 +43,7 @@ function App() {
 
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
-        <Hover>
+        <Hover onChange={(isHovered) => console.log("hovered")}>
           <Box
             castShadow
             args={[1, 1, 1]}
