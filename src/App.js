@@ -40,7 +40,14 @@ function App() {
         <OrbitControls />
 
         {/* Some geometry */}
-        <Box castShadow args={[1, 1, 1]} Box position={[0, 0, -5]}>
+        {/* box is positioned in front of vr camera */}
+        <Box
+          castShadow
+          args={[1, 1, 1]}
+          Box
+          position={[0, 0, -5]}
+          rotation={[2, 3, 0]}
+        >
           <meshStandardMaterial color="gray" />
         </Box>
       </VRCanvas>
