@@ -5,7 +5,6 @@ import { VRCanvas, DefaultXRControllers, Hover } from "react-xr";
 import "./App.css";
 
 import Plane from "./components/plane";
-import Controllers from "./components/controllers";
 
 //drums
 import KickDrum from "./components/drums/kick";
@@ -27,7 +26,6 @@ function App() {
   return (
     <div className="app">
       <VRCanvas>
-        <Controllers />
         <PerspectiveCamera
           makeDefault // Registers it as the default camera system-wide (default=false)
           position={[0, 0, 10]}
