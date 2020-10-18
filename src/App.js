@@ -18,6 +18,7 @@ import kickSfx from "./sounds/808-kick-01.wav";
 import "./App.css";
 
 import Plane from "./components/plane";
+import Controllers from "./components/controllers";
 
 // ADD VR SUPPORT
 
@@ -51,13 +52,14 @@ function App() {
   // rright squeezs kick drum pending
 
   // const rightController = useController("right");
-  const rightController = useController("right");
+  // const rightController = useController("right");
 
   const onSqueeze = useCallback(() => console.log("Squeezed"), []);
   // useXREvent("squeeze", onSqueeze, { handedness: "right" });
   return (
     <div className="app">
       <VRCanvas>
+        <Controllers />
         <PerspectiveCamera
           makeDefault // Registers it as the default camera system-wide (default=false)
           position={[0, 0, 10]}
