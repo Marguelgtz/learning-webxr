@@ -13,7 +13,7 @@ function App() {
     <div className="app">
       <VRCanvas>
         <PerspectiveCamera
-          makeDefault // Registers it as the default camera system-wide (default=false
+          makeDefault // Registers it as the default camera system-wide (default=false)
           position={[0, 0, 10]}
         >
           <mesh />
