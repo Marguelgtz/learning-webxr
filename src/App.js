@@ -9,7 +9,11 @@ import Plane from "./components/plane";
 // ADD VR SUPPORT
 
 function App() {
-  const isHovered = useState([false, setIsHovered]);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const hoverHandler = (hovered) => {
+    console.log("hover handler function");
+  };
 
   return (
     <div className="app">
@@ -43,7 +47,7 @@ function App() {
 
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
-        <Hover onChange={(isHovered) => console.log("hovered")}>
+        <Hover onChange={(isHovered) => hoverHandler}>
           <Box
             castShadow
             args={[1, 1, 1]}
