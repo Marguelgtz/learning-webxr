@@ -61,10 +61,10 @@ function App() {
         <Hover onChange={(isHovered) => hoverHandler(isHovered)}>
           <Cylinder
             castShadow
-            args={[0.3, 0.3, 0.3]}
+            args={[0.2, 0.2, 0.3]}
             Box
             position={[0, 0.5, -0.8]}
-            rotation={[1, 0, 0]}
+            rotation={[0.7, 0, 0]}
           >
             <meshStandardMaterial color={isHovered ? "green" : "blue"} />
           </Cylinder>
