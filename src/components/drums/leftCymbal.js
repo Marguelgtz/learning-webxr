@@ -3,30 +3,30 @@ import { Cone } from "drei";
 import { Hover } from "react-xr";
 import useSound from "use-sound";
 
-import tomSfx from "../../sounds/808-tom-10.wav";
+import cymbalSfx from "../../sounds/808-cymbal-01.wav";
 
 const Tom2 = () => {
-  const [tomSound] = useSound(tomSfx);
-  const [isTomHovered, setIsTomHovered] = useState(false);
+  const [cymbalSound] = useSound(cymbalSfx);
+  const [isCymbalHovered, setIsCymbalHovered] = useState(false);
   const tomHandler = (hovered) => {
     if (hovered) {
-      setIsTomHovered(true);
-      tomSound();
+      setIsCymbalHovered(true);
+      cymbalSound();
     } else {
-      setIsTomHovered(false);
+      setIsCymbalHovered(false);
     }
   };
 
   return (
-    <Hover onChange={(isTomHovered) => tomHandler(isTomHovered)}>
+    <Hover onChange={(isCymbalHovered) => tomHandler(isCymbalHovered)}>
       <Cone
         castShadow
         args={[0.3, 0.1]}
         Box
-        position={[0.5, 1, -0.65]}
-        rotation={[0.7, 0, Math.PI / 15]}
+        position={[-0.5, 1.3, -0.65]}
+        rotation={[0.7, 0, (12 * Math.PI) / 6]}
       >
-        <meshStandardMaterial color={isTomHovered ? "red" : "yellow"} />
+        <meshStandardMaterial color={isCymbalHovered ? "red" : "yellow"} />
       </Cone>
     </Hover>
   );
