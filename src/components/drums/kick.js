@@ -1,6 +1,19 @@
 import React from "react";
 import { Cylinder } from "drei";
+import { useXREvent } from "react-xr";
+import useSound from "use-sound";
+
+import kickSfx from "../../sounds/808-kick-01.wav";
+
 const Kick = () => {
+  const [kickSound] = useSound(kickSfx);
+
+  const onSqueeze = () => {
+    kickSound();
+    console.log("sqeek right controller");
+  };
+  useXREvent("squeeze", onSqueeze, { handedness: "right" });
+
   return (
     <Cylinder
       castShadow
