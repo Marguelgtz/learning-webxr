@@ -54,7 +54,7 @@ function App() {
   // const rightController = useController("right");
   // const rightController = useController("right");
 
-  const onSqueeze = useCallback(() => console.log("Squeezed"), []);
+  // const onSqueeze = useCallback(() => console.log("Squeezed"), []);
   // useXREvent("squeeze", onSqueeze, { handedness: "right" });
   return (
     <div className="app">
