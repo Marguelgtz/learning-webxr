@@ -64,7 +64,7 @@ function App() {
             args={[0.5, 0.5, 0.5]}
             Box
             position={[0, 0.5, -0.5]}
-            rotation={[2, 3, 0]}
+            // rotation={[2, 3, 0]}
           >
             <meshStandardMaterial color={isHovered ? "green" : "blue"} />
           </Cylinder>
