@@ -41,15 +41,17 @@ function App() {
 
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
-        <Box
-          castShadow
-          args={[1, 1, 1]}
-          Box
-          position={[0, 0, -5]}
-          rotation={[2, 3, 0]}
-        >
-          <meshStandardMaterial color="gray" />
-        </Box>
+        <Hover>
+          <Box
+            castShadow
+            args={[1, 1, 1]}
+            Box
+            position={[0, 0, -3]}
+            rotation={[2, 3, 0]}
+          >
+            <meshStandardMaterial color="gray" />
+          </Box>
+        </Hover>
       </VRCanvas>
     </div>
   );
