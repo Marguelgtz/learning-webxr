@@ -32,4 +32,4 @@ const LeftCymbal = () => {
   );
 };
 
-export default Tom2;
+export default LeftCymbal;
