@@ -13,7 +13,8 @@
     "react-scripts": "3.4.3",
     "react-three-fiber": "^5.0.6",
     "react-xr": "^1.1.0",
-    "three": "^0.121.1"
+    "three": "^0.121.1",
+    "use-sound": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
