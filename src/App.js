@@ -2,12 +2,6 @@ import React, { useState, useCallback, useEffect } from "react";
 import { OrbitControls, Box, Cylinder, PerspectiveCamera } from "drei";
 // import { Canvas } from "react-three-fiber";
 import { VRCanvas, DefaultXRControllers, Hover } from "react-xr";
-import useSound from "use-sound";
-
-import tomSfx from "./sounds/808-tom-01.wav";
-
-import kickSfx from "./sounds/808-kick-01.wav";
-
 import "./App.css";
 
 import Plane from "./components/plane";
@@ -16,26 +10,11 @@ import Controllers from "./components/controllers";
 //drums
 import KickDrum from "./components/drums/kick";
 import SnareDrum from "./components/drums/snare";
+import TomDrum from "./components/drums/tom";
 
 // ADD VR SUPPORT
 
 function App() {
-  const [tomSound] = useSound(tomSfx);
-
-  const [kickSound] = useSound(kickSfx);
-
-  const [isTomHovered, setIsTomHovered] = useState(false);
-  const [isSnareHovered, setIsSnareHovered] = useState(false);
-
-  const tomHandler = (hovered) => {
-    if (hovered) {
-      setIsTomHovered(true);
-      tomSound();
-    } else {
-      setIsTomHovered(false);
-    }
-  };
-
   //  need to build move selected object position function
 
   // rright squeezs kick drum pending
@@ -78,17 +57,7 @@ function App() {
 
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
-        <Hover onChange={(isTomHovered) => tomHandler(isTomHovered)}>
-          <Cylinder
-            castShadow
-            args={[0.2, 0.2, 0.3]}
-            Box
-            position={[0, 0.5, -0.7]}
-            rotation={[0.7, 0, 0]}
-          >
-            <meshStandardMaterial color={isTomHovered ? "green" : "blue"} />
-          </Cylinder>
-        </Hover>
+        <TomDrum />
         <SnareDrum />
         <KickDrum />
       </VRCanvas>
