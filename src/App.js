@@ -5,6 +5,7 @@ import { VRCanvas, DefaultXRControllers, Hover } from "react-xr";
 import useSound from "use-sound";
 
 import tomSfx from "./sounds/808-tom-01.wav";
+import snareSfx from "./sounds/808-snare-02.wav";
 
 import "./App.css";
 
@@ -14,6 +15,7 @@ import Plane from "./components/plane";
 
 function App() {
   const [tomSound] = useSound(tomSfx);
+  const [snareSound] = useSound(snareSfx);
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -28,7 +30,7 @@ function App() {
   const snareHandler = (hovered) => {
     if (hovered) {
       setIsHovered(true);
-      tomSound();
+      snareSound();
     } else {
       setIsHovered(false);
     }
