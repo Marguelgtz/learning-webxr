@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { OrbitControls, Box, PerspectiveCamera } from "drei";
 // import { Canvas } from "react-three-fiber";
 import { VRCanvas, DefaultXRControllers, Hover } from "react-xr";
+import useSound from "use-sound";
+
+import tomSfx from "./sounds/808-tom-01.wav";
 
 import "./App.css";
 
@@ -10,11 +13,17 @@ import Plane from "./components/plane";
 // ADD VR SUPPORT
 
 function App() {
+  const [tomSound] = useSound(tomSfx);
+
   const [isHovered, setIsHovered] = useState(false);
-  //box color state
-  const [boxColor, setBoxColor] = useState("green");
+
   const hoverHandler = (hovered) => {
-    hovered ? setBoxColor("blue") : setBoxColor("green");
+    if (hovered) {
+      setIsHovered(true);
+      tomSound();
+    } else {
+      setIsHovered(false);
+    }
   };
 
   return (
@@ -49,7 +58,7 @@ function App() {
 
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
-        <Hover onChange={(isHovered) => setIsHovered(!isHovered)}>
+        <Hover onChange={(isHovered) => hoverHandler(isHovered)}>
           <Box
             castShadow
             args={[0.5, 0.5, 0.5]}
