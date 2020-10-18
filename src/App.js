@@ -50,9 +50,9 @@ function App() {
         <Hover onChange={(isHovered) => hoverHandler}>
           <Box
             castShadow
-            args={[1, 1, 1]}
+            args={[0.5, 0.5, 0.5]}
             Box
-            position={[0, 0, -3]}
+            position={[0, 0, -1]}
             rotation={[2, 3, 0]}
           >
             <meshStandardMaterial color="gray" />
