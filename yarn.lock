@@ -1358,6 +1358,11 @@
     "@react-spring/core" "9.0.0-rc.3"
     "@react-spring/shared" "9.0.0-rc.3"
 
+"@react-three/xr@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@react-three/xr/-/xr-1.1.0.tgz#9e07e3d77d6b6965932376e50e1bfb9fc1127e2b"
+  integrity sha512-XXXm7cHA9jJ4huAC2Ag56B3wmULnzSl0QaNOuWPuqJst9kdRBowKDKob5/qMqf0uIySxhsbeTxYT/PrOTwrMqw==
+
 "@sheerun/mutationobserver-shim@^0.3.2":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.3.tgz#5405ee8e444ed212db44e79351f0c70a582aae25"
