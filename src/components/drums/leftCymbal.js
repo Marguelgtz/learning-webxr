@@ -5,7 +5,7 @@ import useSound from "use-sound";
 
 import cymbalSfx from "../../sounds/808-cymbal-01.wav";
 
-const Tom2 = () => {
+const LeftCymbal = () => {
   const [cymbalSound] = useSound(cymbalSfx);
   const [isCymbalHovered, setIsCymbalHovered] = useState(false);
   const tomHandler = (hovered) => {
