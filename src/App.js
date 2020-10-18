@@ -10,9 +10,10 @@ import Plane from "./components/plane";
 
 function App() {
   const [isHovered, setIsHovered] = useState(false);
-
+  //box color state
+  const [boxColor, setBoxColor] = useState("green");
   const hoverHandler = (hovered) => {
-    console.log("hover handler function");
+    hovered ? setBoxColor("blue") : setBoxColor("green");
   };
 
   return (
@@ -47,15 +48,15 @@ function App() {
 
         {/* Some geometry */}
         {/* box is positioned in front of vr camera */}
-        <Hover onChange={(isHovered) => hoverHandler}>
+        <Hover onChange={(isHovered) => () => hoverHandler(isHovered)}>
           <Box
             castShadow
             args={[0.5, 0.5, 0.5]}
             Box
-            position={[0, 1, -1]}
+            position={[0, 1, -0.8]}
             rotation={[2, 3, 0]}
           >
-            <meshStandardMaterial color="gray" />
+            <meshStandardMaterial color={boxColor} />
           </Box>
         </Hover>
       </VRCanvas>
