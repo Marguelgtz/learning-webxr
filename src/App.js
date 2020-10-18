@@ -22,9 +22,6 @@ function App() {
   const [isTomHovered, setIsTomHovered] = useState(false);
   const [isSnareHovered, setIsSnareHovered] = useState(false);
 
-  const onSqueeze = useCallback(() => kickSound(), []);
-  useXREvent("squeeze", onSqueeze, { handedness: "rigth" });
-
   const tomHandler = (hovered) => {
     if (hovered) {
       setIsTomHovered(true);
@@ -44,6 +41,9 @@ function App() {
 
   //  need to build move selected object position function
 
+  // rright squeezs kick drum pending
+  // const onSqueeze = useCallback(() => kickSound(), []);
+  // useXREvent("select", onSqueeze);
   return (
     <div className="app">
       <VRCanvas>
