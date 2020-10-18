@@ -1,14 +1,17 @@
 import React from "react";
 import { OrbitControls, Box } from "drei";
-import { Canvas } from "react-three-fiber";
+// import { Canvas } from "react-three-fiber";
+import { VRCanvas } from "react-xr";
 import "./App.css";
 
 import Plane from "./components/plane";
 
+// ADD VR SUPPORT
+
 function App() {
   return (
     <div className="app">
-      <Canvas>
+      <VRCanvas>
         <Plane />
         {/* Scene lighting */}
         <ambientLight intensity={0.2} />
@@ -31,7 +34,7 @@ function App() {
         <Box castShadow>
           <meshStandardMaterial color="gray" />
         </Box>
-      </Canvas>
+      </VRCanvas>
     </div>
   );
 }
