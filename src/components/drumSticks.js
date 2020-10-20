@@ -25,6 +25,8 @@ const Drumsticks = (params) => {
     }
     if (rightController) {
       rigthControllerData.current.position.copy(
+        // need to position drumsticks on the top edge of controllers and follow their movement
+        // idea: calculate the position with the rotation
         new THREE.Vector3(
           rightController.controller.position.x,
           rightController.controller.position.y + 0.2,
