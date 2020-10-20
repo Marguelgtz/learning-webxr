@@ -30,8 +30,8 @@ const Drumsticks = (params) => {
         new THREE.Vector3(
           rightController.controller.position.x,
           rightController.controller.position.y,
-          rightController.controller.position.z *
-            Math.cos(rightController.controller.rotation.x)
+          rightController.controller.position.z -
+            0.2 * Math.cos(rightController.controller.rotation.x)
         )
       );
 
