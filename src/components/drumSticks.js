@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useController, useXR } from "react-xr";
 import { useFrame } from "react-three-fiber";
 import { Box } from "drei";
+import * as THREE from "three";
 
 const Drumsticks = (params) => {
   const leftController = useController("left");
@@ -24,8 +25,13 @@ const Drumsticks = (params) => {
     }
     if (rightController) {
       rigthControllerData.current.position.copy(
-        rightController.controller.position
+        new THREE.Vector3(
+          rightController.controller.position.x,
+          rightController.controller.position.y + 0.2,
+          rightController.controller.position.z
+        )
       );
+
       rigthControllerData.current.rotation.copy(
         rightController.controller.rotation
       );
