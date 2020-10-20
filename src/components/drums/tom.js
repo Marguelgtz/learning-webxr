@@ -11,15 +11,15 @@ const Tom = () => {
 
   const tomHandler = (hovered) => {
     if (hovered) {
-      setIsTomHovered(true);
       tomSound();
+      setIsTomHovered(true);
     } else {
       setIsTomHovered(false);
     }
   };
 
   return (
-    <Hover onChange={(isTomHovered) => tomHandler(isTomHovered)}>
+    <Hover onSelect={(isTomHovered) => tomHandler(isTomHovered)}>
       <Cylinder
         castShadow
         args={[0.2, 0.2, 0.3]}
