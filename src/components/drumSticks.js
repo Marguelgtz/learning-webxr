@@ -1,5 +1,5 @@
 import React from "react";
-import { useController } from "react-xr";
+import { useController, useXR } from "react-xr";
 import { Box } from "drei";
 const Drumsticks = (params) => {
   const leftController = useController("left");
@@ -7,17 +7,23 @@ const Drumsticks = (params) => {
   if (leftController) {
     console.log(leftController.controller);
   }
+
+  const { controllers } = useXR();
+  if (controllers[0]) {
+    console.log("grip", controllers[0].grip);
+  }
+
   return (
     <>
       {/* left */}
-      {leftController ? (
+      {leftController && controllers[0] ? (
         <Box
           castShadow
           args={[0.02, 0.02, 0.5]}
           position={[
-            leftController.controller.position.x,
-            leftController.controller.position.y,
-            leftController.controller.position.z,
+            leftController.grip.position.x,
+            leftController.grip.position.y,
+            leftController.grip.position.z,
           ]}
           rotation={[
             leftController.controller.rotation.x,
