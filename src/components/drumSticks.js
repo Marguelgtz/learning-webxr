@@ -24,10 +24,10 @@ const Drumsticks = (params) => {
     }
     if (rightController) {
       rigthControllerData.current.position.copy(
-        leftController.controller.position
+        rightController.controller.position
       );
       rigthControllerData.current.rotation.copy(
-        leftController.controller.rotation
+        rightController.controller.rotation
       );
     }
   });
