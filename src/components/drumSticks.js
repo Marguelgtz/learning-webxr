@@ -15,18 +15,18 @@ const Drumsticks = (params) => {
   useFrame(() => {
     //thanks @sniok live positions now works like a charm
     if (leftController) {
-      leftControllerData.current.leftPosition.copy(
+      leftControllerData.current.position.copy(
         leftController.controller.position
       );
-      leftControllerData.current.rightRotation.copy(
+      leftControllerData.current.rotation.copy(
         leftController.controller.rotation
       );
     }
     if (rightController) {
-      rigthControllerData.current.leftPosition.copy(
+      rigthControllerData.current.position.copy(
         leftController.controller.position
       );
-      rigthControllerData.current.rightRotation.copy(
+      rigthControllerData.current.rotation.copy(
         leftController.controller.rotation
       );
     }
