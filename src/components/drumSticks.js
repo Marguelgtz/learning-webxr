@@ -8,6 +8,8 @@ const Drumsticks = (params) => {
     console.log(leftController.controller);
   }
 
+  // NEED LIVE CONTROLLER POSITION
+
   const { controllers } = useXR();
   if (controllers[0]) {
     console.log("grip", controllers[0].grip);
