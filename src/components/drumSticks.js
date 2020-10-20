@@ -13,7 +13,7 @@ const Drumsticks = (params) => {
   const rigthControllerData = useRef(); // Reference for the box instance
 
   //useFrame so controller data updates each render
-  useFrame(() => {
+  useFrame((frameArg) => {
     //thanks @sniok live positions now works like a charm
     if (leftController) {
       leftControllerData.current.position.copy(
@@ -29,14 +29,16 @@ const Drumsticks = (params) => {
         // idea: calculate the position with the rotation
         new THREE.Vector3(
           rightController.controller.position.x,
-          rightController.controller.position.y + 0.2,
-          rightController.controller.position.z
+          rightController.controller.position.y,
+          rightController.controller.position.z *
+            Math.cos(rightController.controller.rotation.x)
         )
       );
 
       rigthControllerData.current.rotation.copy(
         rightController.controller.rotation
       );
+      // console.log("cos(x) = ", Math.cos(rightController.controller.rotation.x));
     }
   });
 
