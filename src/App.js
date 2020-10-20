@@ -13,6 +13,7 @@ import TomDrum from "./components/drums/tom";
 import Tom2Drum from "./components/drums/tom2";
 import LeftCymbal from "./components/drums/leftCymbal";
 import HiHat from "./components/drums/hihat";
+import DrumSticks from "./components/drumSticks";
 
 // ADD VR SUPPORT
 
@@ -56,8 +57,10 @@ function App() {
         {/* need to set orbit controls to a diferent camera position */}
         <OrbitControls />
 
-        {/* Some geometry */}
-        {/* box is positioned in front of vr camera */}
+        {/* DrumSticks */}
+        <DrumSticks />
+        {/* Drum components */}
+
         <TomDrum />
         <Tom2Drum />
         <SnareDrum />

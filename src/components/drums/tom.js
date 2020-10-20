@@ -23,7 +23,7 @@ const Tom = () => {
       <Cylinder
         castShadow
         args={[0.2, 0.2, 0.3]}
-        Box
+        // Box
         position={[0, 0.7, -0.7]}
         rotation={[0.7, 0, (12 * Math.PI) / 6]}
       >
