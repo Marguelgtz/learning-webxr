@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useController, useXR } from "react-xr";
+import { useFrame } from "react-three-fiber";
 import { Box } from "drei";
+
 const Drumsticks = (params) => {
+  const ref = useRef(); // Reference for the box instance
+
   const leftController = useController("left");
   const rightController = useController("right");
-  if (leftController) {
-    console.log(leftController.controller);
-  }
 
+  useFrame(() => {
+    // Don't forget to check this, controller may be disconnected
+    if (leftController === undefined) return;
+
+    ref.current.position.copy(leftController.controller.position);
+    ref.current.rotation.copy(leftController.controller.rotation);
+  });
+
+  console.log("position/rotation left :", ref);
   // NEED LIVE CONTROLLER POSITION
-
-  const { controllers } = useXR();
-  if (controllers[0]) {
-    console.log("grip", controllers[0].grip);
-  }
 
   return (
     <>
       {/* left */}
-      {leftController && controllers[0] ? (
+      {leftController ? (
         <Box
           castShadow
           args={[0.02, 0.02, 0.5]}
