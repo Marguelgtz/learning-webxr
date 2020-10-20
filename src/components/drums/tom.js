@@ -19,7 +19,7 @@ const Tom = () => {
   };
 
   return (
-    <Hover onSelect={(isTomHovered) => tomHandler(isTomHovered)}>
+    <Hover onChange={(isTomHovered) => tomHandler(isTomHovered)}>
       <Cylinder
         castShadow
         args={[0.2, 0.2, 0.3]}
