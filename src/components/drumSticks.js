@@ -18,11 +18,11 @@ const Drumsticks = (params) => {
     if (leftController) {
       leftControllerData.current.position.copy(
         new THREE.Vector3(
-          leftControllerData.controller.position.x -
+          leftController.controller.position.x -
             0.2 * Math.sin(rightController.controller.rotation.y),
-          leftControllerData.controller.position.y +
-            0.2 * Math.sin(rightController.controller.rotation.x),
-          leftControllerData.controller.position.z -
+          leftController.controller.position.y +
+            0.2 * Math.cos(rightController.controller.rotation.x),
+          leftController.controller.position.z -
             (0.2 * Math.cos(rightController.controller.rotation.x) +
               0.2 * Math.sin(rightController.controller.rotation.y)) /
               2
@@ -47,6 +47,11 @@ const Drumsticks = (params) => {
               2
         )
       );
+
+      const zPosRotationX =
+        0.2 * Math.cos(rightController.controller.rotation.x);
+      const zPosRotationY =
+        0.2 * Math.sin(rightController.controller.rotation.y);
 
       rigthControllerData.current.rotation.copy(
         rightController.controller.rotation
