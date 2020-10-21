@@ -47,12 +47,12 @@ const Drumsticks = (params) => {
       rigthControllerData.current.rotation.copy(
         rightController.controller.rotation
       );
-      console.log(
-        "z-position calc: ",
-        (0.2 * Math.cos(rightController.controller.rotation.x) +
-          0.2 * Math.sin(rightController.controller.rotation.y)) /
-          2
-      );
+      // console.log(
+      //   "z-position calc: ",
+      //   (0.2 * Math.cos(rightController.controller.rotation.x) +
+      //     0.2 * Math.sin(rightController.controller.rotation.y)) /
+      //     2
+      // );
     }
   });
 
