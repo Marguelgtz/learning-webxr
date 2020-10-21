@@ -15,14 +15,15 @@ import LeftCymbal from "./components/drums/leftCymbal";
 import HiHat from "./components/drums/hihat";
 import DrumSticks from "./components/drumSticks";
 import { useSelector } from "react-redux";
+//
 // ADD VR SUPPORT
 
 function App() {
-  const { position, rotation } = useSelector((state) => ({
-    position: state.hihat.position,
-    rotation: state.hihat.rotation,
-  }));
-  console.log("position", position, "rotation", rotation);
+  // const { position, rotation } = useSelector((state) => ({
+  //   position: state.hihat.position,
+  //   rotation: state.hihat.rotation,
+  // }));
+  // console.log("position", position, "rotation", rotation);
   //  need to build move selected object position function
 
   // rright squeezs kick drum pending
