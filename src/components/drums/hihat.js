@@ -3,6 +3,8 @@ import { Cone } from "drei";
 import { Hover } from "react-xr";
 import useSound from "use-sound";
 
+import { useSelector } from "react-redux";
+
 import hatSfx from "../../sounds/808-hat-01.wav";
 
 const HiHat = () => {
@@ -16,6 +18,11 @@ const HiHat = () => {
       setIsHiHatHovered(false);
     }
   };
+
+  // const { position, rotation } = useSelector((state) => ({
+  //   position: state.position,
+  //   rotation: state.rotation,
+  // }));
 
   return (
     <Hover onChange={(isHiHatHovered) => hihatHandler(isHiHatHovered)}>
