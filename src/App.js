@@ -43,7 +43,7 @@ function App() {
   const drumKit = useSelector((state) => state.drumsPosition);
   const gameStatus = useSelector((state) => state.gameStatus);
 
-  console.log("status", gameStatus);
+  console.log("status", gameStatus.isPlaying);
   return (
     <div className="app">
       <VRCanvas>
@@ -75,7 +75,7 @@ function App() {
         {/* need to set orbit controls to a diferent camera position */}
         <OrbitControls />
 
-        {gameStatus.isPlaying ? (
+        {gameStatus.playStatus ? (
           //isPlaying status is true
 
           <>
