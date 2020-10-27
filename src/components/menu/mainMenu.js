@@ -14,8 +14,8 @@ const MainMenu = () => {
       console.log("pvs fire");
       //connect redux
       //this switches is playing to TRUE
-      console.log("hoverStatus", !hoverStatus);
-      if (!hoverStatus) {
+      console.log("hoverStatus", hoverStatus);
+      if (hoverStatus) {
         console.log("start funct fire");
       } else {
       }
@@ -28,7 +28,10 @@ const MainMenu = () => {
     if (hovered) {
       // tomSound
       await setHoverStatus(true);
-      delayed();
+      // delayed();
+      setTimeout(() => {
+        phoneVrSelect();
+      }, 2000);
     } else {
       setHoverStatus(false);
     }
