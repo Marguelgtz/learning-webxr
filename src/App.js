@@ -69,6 +69,11 @@ function App() {
         {/* need to set orbit controls to a diferent camera position */}
         <OrbitControls />
 
+
+{gameStatus ? (
+  //isPlaying status is true
+
+    <>
         {/* DrumSticks */}
         <DrumSticks />
         {/* Drum components */}
@@ -79,6 +84,13 @@ function App() {
         <KickDrum positionData={drumKit.kick} />
         <LeftCymbal positionData={drumKit.leftCymbal} />
         <HiHat positionData={drumKit.hihat} />
+        </>
+) : (
+  <>
+  <MainM
+  </>
+)}
+
       </VRCanvas>
     </div>
   );
