@@ -14,6 +14,10 @@ import Tom2Drum from "./components/drums/tom2";
 import LeftCymbal from "./components/drums/leftCymbal";
 import HiHat from "./components/drums/hihat";
 import DrumSticks from "./components/drumSticks";
+
+// Menus
+import MainMenu from ".components/menu/mainMenu";
+
 import { useSelector } from "react-redux";
 //
 // ADD VR SUPPORT
@@ -69,28 +73,28 @@ function App() {
         {/* need to set orbit controls to a diferent camera position */}
         <OrbitControls />
 
+        {gameStatus.isPlaying ? (
+          //isPlaying status is true
 
-{gameStatus ? (
-  //isPlaying status is true
+          <>
+            {/* DrumSticks */}
+            <DrumSticks />
+            {/* Drum components */}
 
-    <>
-        {/* DrumSticks */}
-        <DrumSticks />
-        {/* Drum components */}
+            <TomDrum positionData={drumKit.tom1} />
+            <Tom2Drum positionData={drumKit.tom2} />
+            <SnareDrum positionData={drumKit.snare} />
+            <KickDrum positionData={drumKit.kick} />
+            <LeftCymbal positionData={drumKit.leftCymbal} />
+            <HiHat positionData={drumKit.hihat} />
+          </>
+        ) : (
+          // isPlaying is false
 
-        <TomDrum positionData={drumKit.tom1} />
-        <Tom2Drum positionData={drumKit.tom2} />
-        <SnareDrum positionData={drumKit.snare} />
-        <KickDrum positionData={drumKit.kick} />
-        <LeftCymbal positionData={drumKit.leftCymbal} />
-        <HiHat positionData={drumKit.hihat} />
-        </>
-) : (
-  <>
-  <MainM
-  </>
-)}
-
+          <>
+            <MainMenu />
+          </>
+        )}
       </VRCanvas>
     </div>
   );
