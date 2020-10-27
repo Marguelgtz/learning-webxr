@@ -4,6 +4,8 @@ import { Hover } from "react-xr";
 import { debounce } from "lodash";
 import { useFrame } from "react-three-fiber";
 
+import useTimer from "../../hooks/useTimer";
+
 const MainMenu = () => {
   const [hoverStatus, setHoverStatus] = useState({
     status: false,
@@ -11,17 +13,7 @@ const MainMenu = () => {
   });
   const [phoneVrSelect, setPhoneVrSelect] = useState(false);
 
-  useFrame((useFrameArgs) => {
-    // console.log(hoverStatus.date - Date.now());
-    // console.log(Date.now() - hoverStatus.date);
-    console.log(hoverStatus.date - Date.now());
-    if (hoverStatus.status) {
-      // console.log(hoverStatus.date - Date.now());
-      if (hoverStatus.date - Date.now() <= -7000) {
-        setPhoneVrSelect(true);
-      }
-    }
-  });
+  useTimer(() => console.log("callback Fire"), hoverStatus, 5);
 
   const handleStartHover = (hovered) => {
     //need hover timer (do something when hovering for x amount of time)
