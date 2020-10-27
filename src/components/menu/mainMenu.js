@@ -5,13 +5,24 @@ import { debounce } from "lodash";
 import { useFrame } from "react-three-fiber";
 
 const MainMenu = () => {
-  const [hoverStatus, setHoverStatus] = useState(false);
-
-  useFrame((useFrameArgs) => {
-    console.log("useframe fire", Date.now());
+  const [hoverStatus, setHoverStatus] = useState({
+    status: false,
+    date: Date.now(),
   });
 
-  const handleStartHover = async (hovered) => {
+  useFrame((useFrameArgs) => {
+    // console.log(hoverStatus.date - Date.now());
+    // console.log(Date.now() - hoverStatus.date);
+    if (hoverStatus.status) {
+      console.log(hoverStatus.date - Date.now());
+      if (hoverStatus.date - Date.now() <= 5000) {
+        console.log("date time", Date.now());
+        console.log(hoverStatus.date);
+      }
+    }
+  });
+
+  const handleStartHover = (hovered) => {
     //need hover timer (do something when hovering for x amount of time)
     //is playing to true
 
@@ -32,7 +43,7 @@ const MainMenu = () => {
     console.log(hovered);
     if (hovered) {
       // tomSound
-      await setHoverStatus(true);
+      setHoverStatus({ ...hoverStatus, status: true });
       // delayed();
       // setTimeout(() => {
       //   phoneVrSelect();
