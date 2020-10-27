@@ -28,11 +28,11 @@ const useTimer = (callback, { status, startTime }, timerTime) => {
 
     // console.log(hoverStatus.date - Date.now());
     // console.log(Date.now() - hoverStatus.date);
-    console.log("Time Left", currentTime - date);
+    // console.log("Time Left", currentTime - date);
     if (status) {
       setTimerStatus("running");
       // console.log(hoverStatus.date - Date.now());
-      if (date - currentTime <= -timerTime * 1000) {
+      if (startTime - Date.now() <= -timerTime * 1000) {
         await callback();
       }
     }
