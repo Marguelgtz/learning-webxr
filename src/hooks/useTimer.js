@@ -39,10 +39,13 @@ const useTimer = (callback, { status, date }, timerTime) => {
       setTimerStatus("running");
       console.log(status, timePercentage);
       console.log(date - Date.now());
-      if (date - Date.now() <= -timerTime * 1000) {
+      if (
+        date - Date.now() <= -timerTime * 1000 &&
+        date - Date.now() >= -timerTime * 1000 - 20
+      ) {
         console.log("timer fire");
-        const deb = debounce(callback, 5000);
-        deb();
+        console.log(status);
+        callback();
       }
     }
   });
