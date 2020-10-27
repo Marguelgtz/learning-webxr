@@ -5,7 +5,7 @@ import useSound from "use-sound";
 
 import cymbalSfx from "../../sounds/808-cymbal-01.wav";
 
-const LeftCymbal = () => {
+const LeftCymbal = ({ positionData }) => {
   const [cymbalSound] = useSound(cymbalSfx);
   const [isCymbalHovered, setIsCymbalHovered] = useState(false);
   const tomHandler = (hovered) => {
@@ -23,8 +23,8 @@ const LeftCymbal = () => {
         castShadow
         args={[0.3, 0.1]}
         Box
-        position={[-0.5, 1.3, -0.7]}
-        rotation={[0.7, 0, (12 * Math.PI) / 6]}
+        position={positionData.position}
+        rotation={positionData.rotation}
       >
         <meshStandardMaterial color={isCymbalHovered ? "red" : "yellow"} />
       </Cone>

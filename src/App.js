@@ -35,7 +35,7 @@ function App() {
   // useXREvent("squeeze", onSqueeze, { handedness: "right" });
 
   const drumKit = useSelector((state) => state);
-
+  console.log(drumKit.leftCymbal);
   return (
     <div className="app">
       <VRCanvas>
@@ -71,12 +71,12 @@ function App() {
         <DrumSticks />
         {/* Drum components */}
 
-        <TomDrum position={drumKit.tom1} />
-        <Tom2Drum position={drumKit.tom2} />
-        <SnareDrum position={drumKit.snare} />
-        <KickDrum position={drumKit.kick} />
-        <LeftCymbal position={drumKit.leftCymbal} />
-        <HiHat position={drumKit.hihat} />
+        <TomDrum positionData={drumKit.tom1} />
+        <Tom2Drum positionData={drumKit.tom2} />
+        <SnareDrum positionData={drumKit.snare} />
+        <KickDrum positionData={drumKit.kick} />
+        <LeftCymbal positionData={drumKit.leftCymbal} />
+        <HiHat positionData={drumKit.hihat} />
       </VRCanvas>
     </div>
   );
