@@ -5,7 +5,7 @@ import useSound from "use-sound";
 
 import tomSfx from "../../sounds/808-tom-01.wav";
 
-const Tom = () => {
+const Tom = ({ positionData }) => {
   const [tomSound] = useSound(tomSfx);
   const [isTomHovered, setIsTomHovered] = useState(false);
 
@@ -24,8 +24,8 @@ const Tom = () => {
         castShadow
         args={[0.2, 0.2, 0.3]}
         // Box
-        position={[0, 0.7, -0.7]}
-        rotation={[0.7, 0, (12 * Math.PI) / 6]}
+        position={positionData.position}
+        rotation={positionData.rotation}
       >
         <meshStandardMaterial color={isTomHovered ? "green" : "blue"} />
       </Cylinder>

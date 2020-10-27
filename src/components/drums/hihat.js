@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 import hatSfx from "../../sounds/808-hat-01.wav";
 
-const HiHat = () => {
+const HiHat = ({ positionData }) => {
   const [hatSound] = useSound(hatSfx);
   const [isHiHatHovered, setIsHiHatHovered] = useState(false);
   const hihatHandler = (hovered) => {
@@ -31,8 +31,8 @@ const HiHat = () => {
         castShadow
         args={[0.3, 0.1]}
         Box
-        position={[-0.6, 0.7, -0.48]}
-        rotation={[0, 0, 0]}
+        position={positionData.position}
+        rotation={positionData.rotation}
       >
         <meshStandardMaterial color={isHiHatHovered ? "red" : "yellow"} />
       </Cone>

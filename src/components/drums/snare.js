@@ -5,7 +5,7 @@ import useSound from "use-sound";
 
 import snareSfx from "../../sounds/808-snare-02.wav";
 
-const Snare = () => {
+const Snare = ({ positionData }) => {
   const [snareSound] = useSound(snareSfx);
   const [isSnareHovered, setIsSnareHovered] = useState(false);
   const snareHandler = (hovered) => {
@@ -23,8 +23,8 @@ const Snare = () => {
         castShadow
         args={[0.3, 0.3, 0.2]}
         Box
-        position={[-0.3, 0.3, -0.2]}
-        rotation={[0, 0, 0]}
+        position={positionData.position}
+        rotation={positionData.rotation}
       >
         <meshStandardMaterial color={isSnareHovered ? "gray" : "brown"} />
       </Cylinder>
