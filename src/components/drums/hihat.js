@@ -19,12 +19,12 @@ const HiHat = () => {
     }
   };
 
-  const { position, rotation } = useSelector((state) => ({
-    position: state.position,
-    rotation: state.rotation,
-  }));
+  // const { position, rotation } = useSelector((state) => ({
+  //   position: state.position,
+  //   rotation: state.rotation,
+  // }));
 
-  console.log("position", position, "rotation", rotation);
+  // console.log("position", position, "rotation", rotation);
   return (
     <Hover onChange={(isHiHatHovered) => hihatHandler(isHiHatHovered)}>
       <Cone
