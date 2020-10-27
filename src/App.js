@@ -16,7 +16,7 @@ import HiHat from "./components/drums/hihat";
 import DrumSticks from "./components/drumSticks";
 
 // Menus
-import MainMenu from ".components/menu/mainMenu";
+import MainMenu from "./components/menu/mainMenu";
 
 import { useSelector } from "react-redux";
 //
