@@ -3,12 +3,10 @@ import { Box, Text } from "drei";
 import { Hover } from "react-xr";
 import { debounce } from "lodash";
 import { useFrame } from "react-three-fiber";
-import { useDispatch } from "react-redux";
+
 import useTimer from "../../hooks/useTimer";
 
-const MainMenu = (hovered) => {
-  const dispatch = useDispatch();
-
+const MainMenu = ({ dispatch }) => {
   const [hoverStatus, setHoverStatus] = useState({
     status: false,
     date: Date.now()

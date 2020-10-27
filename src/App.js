@@ -43,7 +43,7 @@ function App() {
   const drumKit = useSelector((state) => state.drumsPosition);
   const gameStatus = useSelector((state) => state.gameStatus);
 
-  console.log(drumKit.leftCymbal);
+  console.log("status", gameStatus);
   return (
     <div className="app">
       <VRCanvas>
@@ -94,7 +94,7 @@ function App() {
           // isPlaying is false
 
           <>
-            <MainMenu />
+            <MainMenu dispatch={(arg) => dispatch(arg)} />
           </>
         )}
       </VRCanvas>
