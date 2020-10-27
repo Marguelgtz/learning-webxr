@@ -43,7 +43,7 @@ function App() {
   const drumKit = useSelector((state) => state.drumsPosition);
   const gameStatus = useSelector((state) => state.gameStatus);
 
-  console.log("status", gameStatus.isPlaying);
+  console.log("status", gameStatus.playStatus);
   return (
     <div className="app">
       <VRCanvas>
