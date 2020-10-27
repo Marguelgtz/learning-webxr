@@ -6,17 +6,26 @@ import { useFrame } from "react-three-fiber";
 
 import useTimer from "../../hooks/useTimer";
 
-const MainMenu = () => {
+const MainMenu = (hovered) => {
   const [hoverStatus, setHoverStatus] = useState({
     status: false,
     date: Date.now(),
   });
   const [phoneVrSelect, setPhoneVrSelect] = useState(false);
 
-  useTimer(() => console.log("callback Fire"), hoverStatus, 5);
+  const timerData = useTimer(
+    () => console.log("callback Fire"),
+    hoverStatus,
+    5
+  );
+  console.log(timerData);
 
   const handleStartHover = (hovered) => {
-    setHoverStatus({ ...hoverStatus, status: true, date: Date.now() });
+    if (hovered) {
+      setHoverStatus({ status: true, date: Date.now() });
+    } else {
+      setHoverStatus({ status: false, date: Date.now() });
+    }
     //need hover timer (do something when hovering for x amount of time)
     //is playing to true
 
