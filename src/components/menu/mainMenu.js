@@ -9,12 +9,16 @@ import useTimer from "../../hooks/useTimer";
 const MainMenu = (hovered) => {
   const [hoverStatus, setHoverStatus] = useState({
     status: false,
-    date: Date.now(),
+    date: Date.now()
   });
   const [phoneVrSelect, setPhoneVrSelect] = useState(false);
 
-  useTimer(() => console.log("callback Fire"), hoverStatus, 5);
-  // console.log(timerData);
+  const timerPercentage = useTimer(
+    () => console.log("callback Fire"),
+    hoverStatus,
+    5
+  );
+  console.log("mainMenu", timerPercentage);
 
   const handleStartHover = (hovered) => {
     if (hovered) {

@@ -36,22 +36,23 @@ const useTimer = (callback, { status, date }, timerTime) => {
       console.log(date - Date.now());
       const top = date + timerTime * 1000 - Date.now() - 5000;
       const bottom = timerTime * 1000;
-      console.log("top", top, "bottom", bottom);
+      // console.log("top", top, "bottom", bottom);
 
       timerPercentage = Math.abs(top / bottom);
-      console.log(status, timerPercentage);
+      // console.log(status, timerPercentage);
 
       if (
         date - Date.now() <= -timerTime * 1000 &&
         date - Date.now() >= -timerTime * 1000 - 20
       ) {
-        console.log("timer fire");
-        console.log(status);
+        // console.log("timer fire");
+        // console.log(status);
         callback();
       }
     }
   });
-  return [timerPercentage, timerStatus];
+  //also return time status maybe callback info
+  return timerPercentage;
 };
 
 export default useTimer;
