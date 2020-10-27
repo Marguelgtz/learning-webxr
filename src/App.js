@@ -94,7 +94,7 @@ function App() {
           // isPlaying is false
 
           <>
-            <MainMenu dispatch={(arg) => dispatch(arg)} />
+            <MainMenu dispatch={dispatch} />
           </>
         )}
       </VRCanvas>
