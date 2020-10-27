@@ -35,9 +35,11 @@ const useTimer = (callback, { status, date }, timerTime) => {
 
       const top = date + timerTime * 1000 - Date.now() - 5000;
       const bottom = timerTime * 1000;
-      console.log("top", top, "bottom", bottom);
+      // console.log("top", top, "bottom", bottom);
 
-      setTimePercentage(Math.abs(top / bottom));
+      setTimePercentage(
+        Math.abs(top < -timerTime * 1000 ? -timerTime * 1000 : top / bottom)
+      );
       // console.log(status, timerPercentage);
 
       if (
