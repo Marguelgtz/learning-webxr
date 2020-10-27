@@ -26,7 +26,7 @@ const LeftCymbal = ({ positionData }) => {
         args={[0.3, 0.1]}
         Box
         position={positionData.position}
-        rotation={positionData.position}
+        rotation={positionData.rotation}
       >
         <meshStandardMaterial color={isCymbalHovered ? "red" : "yellow"} />
       </Cone>
