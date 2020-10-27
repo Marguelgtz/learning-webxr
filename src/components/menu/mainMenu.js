@@ -76,7 +76,7 @@ const MainMenu = ({ dispatch }) => {
         </Box>
       </Hover>
       <Text
-        position={[0, 1, -2]}
+        position={[0, 2, -2]}
         color={hoverStatus ? "#000" : "blue"}
         fontSize={0.5}
       >
