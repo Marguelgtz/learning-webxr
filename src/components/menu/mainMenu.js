@@ -13,7 +13,7 @@ const MainMenu = (hovered) => {
   });
   const [phoneVrSelect, setPhoneVrSelect] = useState(false);
 
-  const timerData = useTimer(
+  const [timerData] = useTimer(
     () => console.log("callback Fire"),
     hoverStatus,
     5

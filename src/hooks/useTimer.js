@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { useFrame } from "react-three-fiber";
 //
 const useTimer = async (callback, { status, startTime }, timerTime) => {
+  await startTime;
   console.log("useTimer  fire");
-
+  console.log(startTime);
   const [timerStatus, setTimerStatus] = useState("not-running");
-  useFrame(async () => {
+  const [timePercentage, setTimePercentage] = useState(0);
+  useFrame(() => {
     // timerPercentage => 0 = 0%, 1 = 100%
     // console.log("useTimer frame fire", Date.now());
 
@@ -26,8 +28,9 @@ const useTimer = async (callback, { status, startTime }, timerTime) => {
     //
     //
 
-    let timerPercentage =
-      (await (Date.now() - (startTime + timerTime))) / startTime + timerTime;
+    setTimePercentage(
+      (Date.now() - (startTime + timerTime)) / startTime + timerTime
+    );
 
     // console.log(hoverStatus.date - Date.now());
     // console.log(Date.now() - hoverStatus.date);
@@ -35,13 +38,14 @@ const useTimer = async (callback, { status, startTime }, timerTime) => {
     if (status) {
       setTimerStatus("running");
       console.log(status, ", status running", Date.now());
+      console.log(startTime - Date.now());
       if (startTime - Date.now() <= -timerTime * 1000) {
         console.log("timer fire");
-        await callback();
+        callback();
       }
     }
-    return timerPercentage;
   });
+  return [timePercentage, timerStatus];
 };
 
 export default useTimer;
