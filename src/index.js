@@ -5,11 +5,11 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import drumsPosition from "./redux/drumsPosition/reducer";
-import gameReducer from "./redux/gameReducer/reducer";
+import gameStatus from "./redux/gameStatus/reducer";
 
 const reducer = combineReducers({
   drumsPosition: drumsPosition,
-  gameStatus: gameReducer,
+  gameStatus: gameStatus,
 });
 
 const newStore = createStore(reducer, applyMiddleware(thunk));
