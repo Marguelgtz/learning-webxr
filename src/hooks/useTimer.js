@@ -23,7 +23,7 @@ const useTimer = (callback, { status, startTime }, timerTime) => {
     //
     //
 
-    const timerPercentage =
+    let timerPercentage =
       (Date.now() - (startTime + timerTime)) / startTime + timerTime;
 
     // console.log(hoverStatus.date - Date.now());
@@ -33,6 +33,7 @@ const useTimer = (callback, { status, startTime }, timerTime) => {
       setTimerStatus("running");
       // console.log(hoverStatus.date - Date.now());
       if (startTime - Date.now() <= -timerTime * 1000) {
+        console.log("timer fire");
         await callback();
       }
     }

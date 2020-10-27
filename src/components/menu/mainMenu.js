@@ -16,34 +16,35 @@ const MainMenu = () => {
   useTimer(() => console.log("callback Fire"), hoverStatus, 5);
 
   const handleStartHover = (hovered) => {
+    setHoverStatus({ ...hoverStatus, status: true, date: Date.now() });
     //need hover timer (do something when hovering for x amount of time)
     //is playing to true
 
-    const phoneVrSelect = (hovered) => {
-      console.log("pvs fire");
-      //connect redux
-      //this switches is playing to TRUE
-      console.log("hoverStatus", hoverStatus);
-      if (hoverStatus) {
-        console.log("start funct fire");
-      } else {
-      }
-      // console.log("start funct fire");
-    };
-    const delayed = debounce(() => {
-      phoneVrSelect(true);
-    }, 2000);
-    console.log(hovered);
-    if (hovered) {
-      // tomSound
-      setHoverStatus({ ...hoverStatus, status: true, date: Date.now() });
-      // delayed();
-      // setTimeout(() => {
-      //   phoneVrSelect();
-      // }, 2000);
-    } else {
-      setHoverStatus(false);
-    }
+    // const phoneVrSelect = (hovered) => {
+    //   console.log("pvs fire");
+    //   //connect redux
+    //   //this switches is playing to TRUE
+    //   console.log("hoverStatus", hoverStatus);
+    //   if (hoverStatus) {
+    //     console.log("start funct fire");
+    //   } else {
+    //   }
+    //   // console.log("start funct fire");
+    // };
+    // const delayed = debounce(() => {
+    //   phoneVrSelect(true);
+    // }, 2000);
+    // console.log(hovered);
+    // if (hovered) {
+    //   // tomSound
+    //   setHoverStatus({ ...hoverStatus, status: true, date: Date.now() });
+    //   // delayed();
+    //   // setTimeout(() => {
+    //   //   phoneVrSelect();
+    //   // }, 2000);
+    // } else {
+    //   setHoverStatus(false);
+    // }
   };
 
   return (
