@@ -17,6 +17,8 @@ const LeftCymbal = ({ positionData }) => {
     }
   };
 
+  console.log("positionData", positionData);
+
   return (
     <Hover onChange={(isCymbalHovered) => tomHandler(isCymbalHovered)}>
       <Cone
@@ -24,7 +26,7 @@ const LeftCymbal = ({ positionData }) => {
         args={[0.3, 0.1]}
         Box
         position={positionData.position}
-        rotation={positionData.rotation}
+        rotation={positionData.position}
       >
         <meshStandardMaterial color={isCymbalHovered ? "red" : "yellow"} />
       </Cone>

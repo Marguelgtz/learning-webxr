@@ -22,8 +22,8 @@ const initialState = {
     rotation: [0, 0, 0],
   },
   leftCymbal: {
-    position: [-0.5, 1.3, -0.7],
-    rotation: [0.7, 0, (12 * Math.PI) / 6],
+    position: [-0.5, 2.3, -0.7],
+    rotation: [[0.7, 0, (12 * Math.PI) / 6]],
   },
 };
 
