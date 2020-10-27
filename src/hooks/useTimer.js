@@ -32,7 +32,7 @@ const useTimer = (callback, { status, date }, timerTime) => {
     // console.log("Time Left", currentTime - date);
     if (status) {
       setTimerStatus("running");
-      console.log(date - Date.now());
+
       const top = date + timerTime * 1000 - Date.now() - 5000;
       const bottom = timerTime * 1000;
       // console.log("top", top, "bottom", bottom);
