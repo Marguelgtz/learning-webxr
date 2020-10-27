@@ -10,7 +10,7 @@ const initialState = {
     rotation: [0, 0, 0],
   },
   tom1: {
-    position: [0, 0.7, -0.7],
+    position: [0, 1.7, -0.7],
     rotation: [0.7, 0, (12 * Math.PI) / 6],
   },
   tom2: {
