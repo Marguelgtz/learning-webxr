@@ -14,7 +14,11 @@ import Tom2Drum from "./components/drums/tom2";
 import LeftCymbal from "./components/drums/leftCymbal";
 import HiHat from "./components/drums/hihat";
 import DrumSticks from "./components/drumSticks";
-import { useSelector } from "react-redux";
+
+// Menus
+import MainMenu from "./components/menu/mainMenu";
+
+import { useSelector, useDispatch } from "react-redux";
 //
 // ADD VR SUPPORT
 
@@ -34,11 +38,15 @@ function App() {
   // const onSqueeze = useCallback(() => console.log("Squeezed"), []);
   // useXREvent("squeeze", onSqueeze, { handedness: "right" });
 
-  const drumKit = useSelector((state) => state);
-  console.log(drumKit.leftCymbal);
+  const dispatch = useDispatch();
+
+  const drumKit = useSelector((state) => state.drumsPosition);
+  const gameStatus = useSelector((state) => state.gameStatus);
+
+  console.log("status", gameStatus.playStatus);
   return (
     <div className="app">
-      <VRCanvas>
+      <VRCanvas style={{ background: "white" }}>
         {/* this is the off vr camera */}
         <PerspectiveCamera
           makeDefault // Registers it as the default camera system-wide (default=false)
@@ -67,16 +75,28 @@ function App() {
         {/* need to set orbit controls to a diferent camera position */}
         <OrbitControls />
 
-        {/* DrumSticks */}
-        <DrumSticks />
-        {/* Drum components */}
+        {gameStatus.playStatus ? (
+          //isPlaying status is true
 
-        <TomDrum positionData={drumKit.tom1} />
-        <Tom2Drum positionData={drumKit.tom2} />
-        <SnareDrum positionData={drumKit.snare} />
-        <KickDrum positionData={drumKit.kick} />
-        <LeftCymbal positionData={drumKit.leftCymbal} />
-        <HiHat positionData={drumKit.hihat} />
+          <>
+            {/* DrumSticks */}
+            <DrumSticks />
+            {/* Drum components */}
+
+            <TomDrum positionData={drumKit.tom1} />
+            <Tom2Drum positionData={drumKit.tom2} />
+            <SnareDrum positionData={drumKit.snare} />
+            <KickDrum positionData={drumKit.kick} />
+            <LeftCymbal positionData={drumKit.leftCymbal} />
+            <HiHat positionData={drumKit.hihat} />
+          </>
+        ) : (
+          // isPlaying is false
+
+          <>
+            <MainMenu dispatch={dispatch} />
+          </>
+        )}
       </VRCanvas>
     </div>
   );
