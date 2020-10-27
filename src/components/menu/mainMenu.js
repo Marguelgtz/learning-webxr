@@ -21,9 +21,9 @@ const MainMenu = () => {
     <>
       {/*  right now set to only hover because I am developing with android vr, need to add controller support */}
       {/* NEED CONTROLLER SUPPORT! */}
-      <Hover onChange={handleStartHover}>
+      <Hover onChange={(hovered) => handleStartHover(hovered)}>
         <Box castShadow args={[1, 0.4, 0.3]} position={[0, 1.5, -2]}>
-          <meshStandardMaterial color="#966F33" />
+          <meshStandardMaterial color={hoverStatus ? "#966F33" : "#b58c4c"} />
           <Text
             position={[0, 0, 0.16]}
             color={hoverStatus ? "#000" : "blue"}
