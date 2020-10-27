@@ -19,7 +19,7 @@ const MainMenu = () => {
     console.log(hovered);
     if (hovered) {
       // tomSound
-      debounce(phoneVrSelect, 1000);
+      debounce(() => phoneVrSelect(), 1000);
       setHoverStatus(true);
     } else {
       setHoverStatus(false);
