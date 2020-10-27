@@ -4,41 +4,41 @@ import { useFrame } from "react-three-fiber";
 import { debounce } from "lodash";
 const useTimer = (callback, { status, date }, timerTime) => {
   // console.log("useTimer  fire");
-
+  let timerPercentage = 0;
   const [timerStatus, setTimerStatus] = useState("not-running");
-  const [timePercentage, setTimePercentage] = useState(0);
+  // const [timePercentage, setTimePercentage] = useState(0);
   useFrame(() => {
     // timerPercentage => 0 = 0%, 1 = 100%
     // console.log("useTimer frame fire", Date.now());
 
     // timerTime (tT)
-    // date (sT)
+    // startingTime (sT) [date]
     // currentTime [Date.now] (cT)
-    // finalTime (fT) == date + timerTime
-    // currentTimeLeft (cTl) == currentTime - finalTime
+    // finalTime (fT) ==> ft = sT  + tT(1000)
+    // currentTimeLeft (cTl) => cTl = fT - cT
     // timerPercentage (Tp)
     //
-    //    Tp = (ct - ft) / sT + tT ==> Tp = cTl / tT
+    //    Tp = (fT - cT) / (sT + tT) (1000) ==> Tp = cTl / tT(1000)
     //
     //    timerPercentage =
     // currentTimeLeft / finalTime
 
-    //    timerPercentage =  (currentTime - finalTime) / (date - timerTime )
+    //    timerPercentage =  (finalTime - currentTime) / (timerTime ) (1000)
     //
     //
     //
-
-    setTimePercentage(
-      (Date.now() - (date + timerTime * 1000)) / date + timerTime
-    );
 
     // console.log(hoverStatus.date - Date.now());
     // console.log(Date.now() - hoverStatus.date);
     // console.log("Time Left", currentTime - date);
     if (status) {
       setTimerStatus("running");
-      console.log(status, timePercentage);
+      console.log(status, timerPercentage);
       console.log(date - Date.now());
+      timerPercentage =
+        (date + timerTime * 1000 - Date.now() / timerTime) * 1000;
+
+      console.log("timer", timerPercentage);
       if (
         date - Date.now() <= -timerTime * 1000 &&
         date - Date.now() >= -timerTime * 1000 - 20
@@ -49,7 +49,7 @@ const useTimer = (callback, { status, date }, timerTime) => {
       }
     }
   });
-  return [timePercentage, timerStatus];
+  return [timerPercentage, timerStatus];
 };
 
 export default useTimer;
