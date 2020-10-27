@@ -72,14 +72,14 @@ const MainMenu = ({ dispatch }) => {
             Start
           </Text>
         </Box>
-        {phoneVrSelect ? (
-          <>
-            <Box castShadow args={[1, 0.4, 0.3]} position={[0.3, 1.9, -2]}>
-              <meshStandardMaterial color="red" />
-            </Box>
-          </>
-        ) : null}
       </Hover>
+      <Text
+        position={[0, 2.3, -2]}
+        color={hoverStatus ? "#000" : "blue"}
+        fontSize={0.5}
+      >
+        {(timerPercentage * 100).toString() + "%"}
+      </Text>
     </>
   );
 };
