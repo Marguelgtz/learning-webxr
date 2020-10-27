@@ -6,21 +6,29 @@ import { debounce } from "lodash";
 const MainMenu = () => {
   const [hoverStatus, setHoverStatus] = useState(false);
 
-  const handleStartHover = (hovered) => {
+  const handleStartHover = async (hovered) => {
     //need hover timer (do something when hovering for x amount of time)
     //is playing to true
 
-    const phoneVrSelect = () => {
+    const phoneVrSelect = (hovered) => {
+      console.log("pvs fire");
       //connect redux
       //this switches is playing to TRUE
-      console.log("start funct fire");
+      console.log("hoverStatus", !hoverStatus);
+      if (!hoverStatus) {
+        console.log("start funct fire");
+      } else {
+      }
+      // console.log("start funct fire");
     };
-
+    const delayed = debounce(() => {
+      phoneVrSelect(true);
+    }, 2000);
     console.log(hovered);
     if (hovered) {
       // tomSound
-      debounce(() => phoneVrSelect(), 1000);
-      setHoverStatus(true);
+      await setHoverStatus(true);
+      delayed();
     } else {
       setHoverStatus(false);
     }
