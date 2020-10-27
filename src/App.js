@@ -35,6 +35,8 @@ function App() {
   // useXREvent("squeeze", onSqueeze, { handedness: "right" });
 
   const drumKit = useSelector((state) => state);
+  const gameStatus = useSelector((state) => state.gameStatus);
+
   console.log(drumKit.leftCymbal);
   return (
     <div className="app">
