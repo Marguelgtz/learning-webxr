@@ -78,7 +78,7 @@ const MainMenu = ({ dispatch }) => {
         color={hoverStatus ? "#000" : "blue"}
         fontSize={0.5}
       >
-        {(timerPercentage * 100).toString() + "%"}
+        {(timerPercentage * 100).toFixed(2).toString() + "%"}
       </Text>
     </>
   );
