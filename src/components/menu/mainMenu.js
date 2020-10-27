@@ -62,7 +62,9 @@ const MainMenu = ({ dispatch }) => {
       {/* NEED CONTROLLER SUPPORT! */}
       <Hover onChange={(hovered) => handleStartHover(hovered)}>
         <Box castShadow args={[1, 0.4, 0.3]} position={[0, 1.5, -2]}>
-          <meshStandardMaterial color={hoverStatus ? "#966F33" : "#b58c4c"} />
+          <meshStandardMaterial
+            color={hoverStatus.status ? "#966F33" : "#b58c4c"}
+          />
 
           <Text
             position={[0, 0, 0.16]}
