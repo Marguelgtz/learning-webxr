@@ -3,10 +3,12 @@ import { Box, Text } from "drei";
 import { Hover } from "react-xr";
 import { debounce } from "lodash";
 import { useFrame } from "react-three-fiber";
-
+import { useDispatch } from "react-redux";
 import useTimer from "../../hooks/useTimer";
 
 const MainMenu = (hovered) => {
+  const dispatch = useDispatch();
+
   const [hoverStatus, setHoverStatus] = useState({
     status: false,
     date: Date.now()
@@ -14,7 +16,7 @@ const MainMenu = (hovered) => {
   const [phoneVrSelect, setPhoneVrSelect] = useState(false);
 
   const timerPercentage = useTimer(
-    () => console.log("callback Fire"),
+    () => dispatch({ type: "START_PLAYING" }),
     hoverStatus,
     5
   );

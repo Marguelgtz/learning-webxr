@@ -18,7 +18,7 @@ import DrumSticks from "./components/drumSticks";
 // Menus
 import MainMenu from "./components/menu/mainMenu";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 //
 // ADD VR SUPPORT
 
@@ -37,6 +37,8 @@ function App() {
 
   // const onSqueeze = useCallback(() => console.log("Squeezed"), []);
   // useXREvent("squeeze", onSqueeze, { handedness: "right" });
+
+  const dispatch = useDispatch();
 
   const drumKit = useSelector((state) => state.drumsPosition);
   const gameStatus = useSelector((state) => state.gameStatus);
