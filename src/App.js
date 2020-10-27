@@ -46,7 +46,7 @@ function App() {
   console.log("status", gameStatus.playStatus);
   return (
     <div className="app">
-      <VRCanvas>
+      <VRCanvas style={{ background: "white" }}>
         {/* this is the off vr camera */}
         <PerspectiveCamera
           makeDefault // Registers it as the default camera system-wide (default=false)
