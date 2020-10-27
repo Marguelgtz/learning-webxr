@@ -33,12 +33,13 @@ const useTimer = (callback, { status, date }, timerTime) => {
     // console.log("Time Left", currentTime - date);
     if (status) {
       setTimerStatus("running");
-      console.log(status, timerPercentage);
       console.log(date - Date.now());
+      const top = date + timerTime * 1000 - Date.now();
+      console.log("top", top);
       timerPercentage =
-        (date + timerTime * 1000 - Date.now() / timerTime) * 1000;
+        date + timerTime * 1000 - (Date.now() / timerTime) * 1000;
+      console.log(status, timerPercentage);
 
-      console.log("timer", timerPercentage);
       if (
         date - Date.now() <= -timerTime * 1000 &&
         date - Date.now() >= -timerTime * 1000 - 20
