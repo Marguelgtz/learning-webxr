@@ -14,6 +14,7 @@ const MainMenu = () => {
   useFrame((useFrameArgs) => {
     // console.log(hoverStatus.date - Date.now());
     // console.log(Date.now() - hoverStatus.date);
+    console.log(hoverStatus.date - Date.now());
     if (hoverStatus.status) {
       // console.log(hoverStatus.date - Date.now());
       if (hoverStatus.date - Date.now() <= -7000) {
