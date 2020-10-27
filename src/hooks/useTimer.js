@@ -4,9 +4,8 @@ import { useFrame } from "react-three-fiber";
 import { debounce } from "lodash";
 const useTimer = (callback, { status, date }, timerTime) => {
   // console.log("useTimer  fire");
-  let timerPercentage = 0;
   const [timerStatus, setTimerStatus] = useState("not-running");
-  // const [timePercentage, setTimePercentage] = useState(0);
+  const [timerPercentage, setTimePercentage] = useState(0);
   useFrame(() => {
     // timerPercentage => 0 = 0%, 1 = 100%
     // console.log("useTimer frame fire", Date.now());
@@ -38,7 +37,7 @@ const useTimer = (callback, { status, date }, timerTime) => {
       const bottom = timerTime * 1000;
       // console.log("top", top, "bottom", bottom);
 
-      timerPercentage = Math.abs(top / bottom);
+      setTimePercentage(Math.abs(top / bottom));
       // console.log(status, timerPercentage);
 
       if (
