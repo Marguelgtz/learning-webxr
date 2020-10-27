@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useFrame } from "react-three-fiber";
 //
-const useTimer = async (callback, { status, startTime }, timerTime) => {
-  await startTime;
-  console.log("useTimer  fire");
-  console.log(startTime);
+import { debounce } from "lodash";
+const useTimer = (callback, { status, date }, timerTime) => {
+  // console.log("useTimer  fire");
+
   const [timerStatus, setTimerStatus] = useState("not-running");
   const [timePercentage, setTimePercentage] = useState(0);
   useFrame(() => {
@@ -12,9 +12,9 @@ const useTimer = async (callback, { status, startTime }, timerTime) => {
     // console.log("useTimer frame fire", Date.now());
 
     // timerTime (tT)
-    // startTime (sT)
+    // date (sT)
     // currentTime [Date.now] (cT)
-    // finalTime (fT) == startTime + timerTime
+    // finalTime (fT) == date + timerTime
     // currentTimeLeft (cTl) == currentTime - finalTime
     // timerPercentage (Tp)
     //
@@ -23,13 +23,13 @@ const useTimer = async (callback, { status, startTime }, timerTime) => {
     //    timerPercentage =
     // currentTimeLeft / finalTime
 
-    //    timerPercentage =  (currentTime - finalTime) / (startTime - timerTime )
+    //    timerPercentage =  (currentTime - finalTime) / (date - timerTime )
     //
     //
     //
 
     setTimePercentage(
-      (Date.now() - (startTime + timerTime)) / startTime + timerTime
+      (Date.now() - (date + timerTime * 1000)) / date + timerTime
     );
 
     // console.log(hoverStatus.date - Date.now());
@@ -37,11 +37,12 @@ const useTimer = async (callback, { status, startTime }, timerTime) => {
     // console.log("Time Left", currentTime - date);
     if (status) {
       setTimerStatus("running");
-      console.log(status, ", status running", Date.now());
-      console.log(startTime - Date.now());
-      if (startTime - Date.now() <= -timerTime * 1000) {
+      console.log(status, timePercentage);
+      console.log(date - Date.now());
+      if (date - Date.now() <= -timerTime * 1000) {
         console.log("timer fire");
-        callback();
+        const deb = debounce(callback, 5000);
+        deb();
       }
     }
   });
