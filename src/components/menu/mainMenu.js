@@ -43,7 +43,7 @@ const MainMenu = () => {
     console.log(hovered);
     if (hovered) {
       // tomSound
-      setHoverStatus({ ...hoverStatus, status: true });
+      setHoverStatus({ ...hoverStatus, status: true, date: Date.now() });
       // delayed();
       // setTimeout(() => {
       //   phoneVrSelect();
