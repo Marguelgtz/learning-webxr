@@ -38,7 +38,7 @@ function App() {
       <VRCanvas>
         <PerspectiveCamera
           makeDefault // Registers it as the default camera system-wide (default=false)
-          position={[0, -15, 10]}
+          position={[0, -25, 10]}
         >
           <mesh />
         </PerspectiveCamera>
