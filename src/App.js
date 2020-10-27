@@ -14,10 +14,16 @@ import Tom2Drum from "./components/drums/tom2";
 import LeftCymbal from "./components/drums/leftCymbal";
 import HiHat from "./components/drums/hihat";
 import DrumSticks from "./components/drumSticks";
-
+import { useSelector } from "react-redux";
+//
 // ADD VR SUPPORT
 
 function App() {
+  // const { position, rotation } = useSelector((state) => ({
+  //   position: state.hihat.position,
+  //   rotation: state.hihat.rotation,
+  // }));
+  // console.log("position", position, "rotation", rotation);
   //  need to build move selected object position function
 
   // rright squeezs kick drum pending
@@ -27,12 +33,16 @@ function App() {
 
   // const onSqueeze = useCallback(() => console.log("Squeezed"), []);
   // useXREvent("squeeze", onSqueeze, { handedness: "right" });
+
+  const drumKit = useSelector((state) => state);
+  console.log(drumKit.leftCymbal);
   return (
     <div className="app">
       <VRCanvas>
+        {/* this is the off vr camera */}
         <PerspectiveCamera
           makeDefault // Registers it as the default camera system-wide (default=false)
-          position={[0, 0, 10]}
+          position={[10, 0, 10]}
         >
           <mesh />
         </PerspectiveCamera>
@@ -61,12 +71,12 @@ function App() {
         <DrumSticks />
         {/* Drum components */}
 
-        <TomDrum />
-        <Tom2Drum />
-        <SnareDrum />
-        <KickDrum />
-        <LeftCymbal />
-        <HiHat />
+        <TomDrum positionData={drumKit.tom1} />
+        <Tom2Drum positionData={drumKit.tom2} />
+        <SnareDrum positionData={drumKit.snare} />
+        <KickDrum positionData={drumKit.kick} />
+        <LeftCymbal positionData={drumKit.leftCymbal} />
+        <HiHat positionData={drumKit.hihat} />
       </VRCanvas>
     </div>
   );

@@ -5,7 +5,7 @@ import useSound from "use-sound";
 
 import kickSfx from "../../sounds/808-kick-01.wav";
 
-const Kick = () => {
+const Kick = ({ positionData }) => {
   const [kickSound] = useSound(kickSfx);
 
   const [kickActive, setKickActive] = useState(false);
@@ -27,8 +27,8 @@ const Kick = () => {
       castShadow
       args={[0.5, 0.5, 0.2]}
       Box
-      position={[0.2, 0, -0.6]}
-      rotation={[Math.PI / 2, 0, 0]}
+      position={positionData.position}
+      rotation={positionData.rotation}
     >
       <meshStandardMaterial color={kickActive ? "purple" : "orange"} />
     </Cylinder>

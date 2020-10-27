@@ -17,7 +17,16 @@ const Drumsticks = (params) => {
     //thanks @sniok live positions now works like a charm
     if (leftController) {
       leftControllerData.current.position.copy(
-        leftController.controller.position
+        new THREE.Vector3(
+          leftController.controller.position.x -
+            0.2 * Math.sin(rightController.controller.rotation.y),
+          leftController.controller.position.y +
+            0.2 * Math.cos(rightController.controller.rotation.x),
+          leftController.controller.position.z -
+            (0.2 * Math.cos(rightController.controller.rotation.x) +
+              0.2 * Math.sin(rightController.controller.rotation.y)) /
+              2
+        )
       );
       leftControllerData.current.rotation.copy(
         leftController.controller.rotation
@@ -28,16 +37,31 @@ const Drumsticks = (params) => {
         // need to position drumsticks on the top edge of controllers and follow their movement
         // idea: calculate the position with the rotation
         new THREE.Vector3(
-          rightController.controller.position.x,
-          rightController.controller.position.y,
-          rightController.controller.position.z
+          rightController.controller.position.x -
+            0.2 * Math.sin(rightController.controller.rotation.y),
+          rightController.controller.position.y +
+            0.2 * Math.sin(rightController.controller.rotation.x),
+          rightController.controller.position.z -
+            (0.2 * Math.cos(rightController.controller.rotation.x) +
+              0.2 * Math.sin(rightController.controller.rotation.y)) /
+              2
         )
       );
+
+      const zPosRotationX =
+        0.2 * Math.cos(rightController.controller.rotation.x);
+      const zPosRotationY =
+        0.2 * Math.sin(rightController.controller.rotation.y);
 
       rigthControllerData.current.rotation.copy(
         rightController.controller.rotation
       );
-      // console.log("cos(x) = ", Math.cos(rightController.controller.rotation.x));
+      // console.log(
+      //   "z-position calc: ",
+      //   (0.2 * Math.cos(rightController.controller.rotation.x) +
+      //     0.2 * Math.sin(rightController.controller.rotation.y)) /
+      //     2
+      // );
     }
   });
 
