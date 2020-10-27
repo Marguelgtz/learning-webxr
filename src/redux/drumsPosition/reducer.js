@@ -6,7 +6,7 @@ const initialState = {
     rotation: [Math.PI / 2, 0, 0],
   },
   snare: {
-    position: [-0.4, 0.8, -0.2],
+    position: [-0.4, 0.8, 0],
     rotation: [0, 0, 0],
   },
   tom1: {
@@ -14,7 +14,7 @@ const initialState = {
     rotation: [0.7, 0, (12 * Math.PI) / 6],
   },
   tom2: {
-    position: [0.6, 1.2, -0.605],
+    position: [0.7, 1.2, -0.605],
     rotation: [0.7, 0, Math.PI / 15],
   },
   hihat: {
