@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { Box, Text } from "drei";
 import { Hover } from "react-xr";
 import { debounce } from "lodash";
+import { useFrame } from "react-three-fiber";
 
 const MainMenu = () => {
   const [hoverStatus, setHoverStatus] = useState(false);
+
+  useFrame((useFrameArgs) => {
+    console.log("useframe fire", Date.now());
+  });
 
   const handleStartHover = async (hovered) => {
     //need hover timer (do something when hovering for x amount of time)
@@ -29,9 +34,9 @@ const MainMenu = () => {
       // tomSound
       await setHoverStatus(true);
       // delayed();
-      setTimeout(() => {
-        phoneVrSelect();
-      }, 2000);
+      // setTimeout(() => {
+      //   phoneVrSelect();
+      // }, 2000);
     } else {
       setHoverStatus(false);
     }
