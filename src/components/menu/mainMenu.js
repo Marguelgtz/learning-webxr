@@ -9,15 +9,15 @@ const MainMenu = () => {
     status: false,
     date: Date.now(),
   });
+  const [phoneVrSelect, setPhoneVrSelect] = useState(false);
 
   useFrame((useFrameArgs) => {
     // console.log(hoverStatus.date - Date.now());
     // console.log(Date.now() - hoverStatus.date);
     if (hoverStatus.status) {
-      console.log(hoverStatus.date - Date.now());
-      if (hoverStatus.date - Date.now() <= 5000) {
-        console.log("date time", Date.now());
-        console.log(hoverStatus.date);
+      // console.log(hoverStatus.date - Date.now());
+      if (hoverStatus.date - Date.now() <= -7000) {
+        setPhoneVrSelect(true);
       }
     }
   });
@@ -60,6 +60,7 @@ const MainMenu = () => {
       <Hover onChange={(hovered) => handleStartHover(hovered)}>
         <Box castShadow args={[1, 0.4, 0.3]} position={[0, 1.5, -2]}>
           <meshStandardMaterial color={hoverStatus ? "#966F33" : "#b58c4c"} />
+
           <Text
             position={[0, 0, 0.16]}
             color={hoverStatus ? "#000" : "blue"}
@@ -68,6 +69,13 @@ const MainMenu = () => {
             Start
           </Text>
         </Box>
+        {phoneVrSelect ? (
+          <>
+            <Box castShadow args={[1, 0.4, 0.3]} position={[0.3, 1.9, -2]}>
+              <meshStandardMaterial color="red" />
+            </Box>
+          </>
+        ) : null}
       </Hover>
     </>
   );
