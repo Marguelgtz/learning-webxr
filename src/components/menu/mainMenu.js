@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Text } from "drei";
 import { Hover } from "react-xr";
+import { debounce } from "lodash";
 
 const MainMenu = () => {
   const [hoverStatus, setHoverStatus] = useState(false);
@@ -8,9 +9,17 @@ const MainMenu = () => {
   const handleStartHover = (hovered) => {
     //need hover timer (do something when hovering for x amount of time)
     //is playing to true
+
+    const phoneVrSelect = () => {
+      //connect redux
+      //this switches is playing to TRUE
+      console.log("start funct fire");
+    };
+
     console.log(hovered);
     if (hovered) {
       // tomSound
+      debounce(phoneVrSelect, 1000);
       setHoverStatus(true);
     } else {
       setHoverStatus(false);
