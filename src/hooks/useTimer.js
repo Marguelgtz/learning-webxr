@@ -50,6 +50,8 @@ const useTimer = (callback, { status, date }, timerTime) => {
         // console.log(status);
         callback();
       }
+    } else {
+      setTimePercentage(0);
     }
   });
   //also return time status maybe callback info
