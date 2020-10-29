@@ -11,14 +11,13 @@ const MainMenu = ({ dispatch }) => {
     status: false,
     date: Date.now()
   });
-  const [phoneVrSelect, setPhoneVrSelect] = useState(false);
 
   const timerPercentage = useTimer(
     () => dispatch({ type: "START_PLAYING" }),
     hoverStatus,
     5
   );
-  console.log("mainMenu", timerPercentage);
+
 
   const handleStartHover = (hovered) => {
     if (hovered) {
@@ -26,34 +25,6 @@ const MainMenu = ({ dispatch }) => {
     } else {
       setHoverStatus({ status: false, date: Date.now() });
     }
-    //need hover timer (do something when hovering for x amount of time)
-    //is playing to true
-
-    // const phoneVrSelect = (hovered) => {
-    //   console.log("pvs fire");
-    //   //connect redux
-    //   //this switches is playing to TRUE
-    //   console.log("hoverStatus", hoverStatus);
-    //   if (hoverStatus) {
-    //     console.log("start funct fire");
-    //   } else {
-    //   }
-    //   // console.log("start funct fire");
-    // };
-    // const delayed = debounce(() => {
-    //   phoneVrSelect(true);
-    // }, 2000);
-    // console.log(hovered);
-    // if (hovered) {
-    //   // tomSound
-    //   setHoverStatus({ ...hoverStatus, status: true, date: Date.now() });
-    //   // delayed();
-    //   // setTimeout(() => {
-    //   //   phoneVrSelect();
-    //   // }, 2000);
-    // } else {
-    //   setHoverStatus(false);
-    // }
   };
 
   return (

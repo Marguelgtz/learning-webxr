@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useFrame } from "react-three-fiber";
-//
-import { debounce } from "lodash";
+
 const useTimer = (callback, { status, date }, timerTime) => {
   // console.log("useTimer  fire");
   const [timerStatus, setTimerStatus] = useState("not-running");
@@ -38,16 +37,19 @@ const useTimer = (callback, { status, date }, timerTime) => {
       // console.log("top", top, "bottom", bottom);
 
       setTimePercentage(
-        Math.abs(top < -timerTime * 1000 ? -timerTime * 1000 : top / bottom)
+        Math.abs((top < -timerTime * 1000 ? -timerTime * 1000 : top) / bottom)
       );
       // console.log(status, timerPercentage);
 
       if (
+        // NEED- over timerTime * 1000
         date - Date.now() <= -timerTime * 1000 &&
         date - Date.now() >= -timerTime * 1000 - 20
       ) {
         // console.log("timer fire");
         // console.log(status);
+
+        //NEED -- need only fire callback once
         callback();
       }
     } else {
